@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Fine Dust Project</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link href="{{url_for('static',filename='css/style.css')}}" rel="stylesheet" />
+		<link href="{{url_for('static',filename='css/font-awesome.min.css')}}" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+	</head>
+	<body class="subpage">
+
+{% block body %}
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="/" class="logo"><strong>Fine Dust</strong> Project</a>
+					<nav id="nav">
+						<a href="/">Home</a>
+						<a href="/news">News</a>
+						<a href="/info">Info</a>
+					</nav>
+					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+				</div>
+			</header>
+
+		<!-- Three -->
+			<section id="three" class="wrapper">
+				<div class="inner">
+					<header class="align-center">
+						<h2>Fine Dust</h2>
+						<p>fine dust, ultrafine dust, ozone </p>
+					</header>
+					<div class="image round left">
+						<img src="static/images/dust_150.jpg" alt="news" />
+					</div>
+					<p>Fine dust is classified into PM10 and PM2.5 according to diameter, PM10 is dust smaller than 10/1000 mm, PM2.5 is dust smaller than 2.5mm (1000 )m) and particles smaller than 1/20 to 1/30 the diameter of hair (about 60)m). Fine dust is released into the air as a mixture of solid and liquid particles and is produced by chemical reactions or naturally. It occurs directly from specific sources such as combustion of business sites, combustion of fuel from automobiles, and combustion process of biological combustion. In the case of PM2.5, a significant amount of precursors such as sulfur oxides (SOx), nitrogen oxides (NOx), ammonia (NH3), and volatile organic chemicals (VOCs) react under certain conditions in the atmosphere and are produced secondary. Natural particles include mineral particles (e.g., yellow dust), salt particles, and biological particles (e.g., pollen, microorganisms). Fine dust composition varies widely, but consists mainly of carbon (organic carbon, elemental carbon), ionic (sulfate, nitrate, ammonium), and mineral components.</p>
+
+					<div class="image round right">
+						<img src="static/images/dust1_150.jpg" alt="info" />
+					</div>
+					<p>Fine dust exacerbates respiratory diseases such as asthma and causes poor lung function. PM2.5 increases the prevalence and premature mortality of asthma and lung diseases by penetrating directly to the alveoli when inhaled without filtering through the nasal mucous membrane. Fine dust also worsens correction, interferes with metabolism by depositing on the surface of the leaves of plants, and causes corrosion by depositing in buildings, relics, and statues.</p>
+
+					<p>Ozone is a type of photochemical oxide such as PAN, Aldehyde, and Acrolein produced by NOx and Volatile Organic Compounds (VOCs) emitted into the atmosphere due to ultraviolet light and photochemical reactions. Volatile organic compounds, which are precursors, are generated from various sources of emissions, including industrial facilities such as automobiles, chemical plants, and oil refineries. Repeated exposure to ozone can damage the lungs, affecting chest pain, coughing, nausea, throat irritation, digestion, worsening bronchitis, heart disease, emphysema and asthma, and reducing lung capacity. In particular, attention needs to be paid to bronchial asthma patients, respiratory diseases, children, and the elderly. It also directly affects crops and plants, reducing yields and killing leaves.</p>
+
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+
+					<h3>Get in touch</h3>
+
+					<form action="#" method="post">
+
+						<div class="field half first">
+							<label for="name">Name</label>
+							<input name="name" id="name" type="text" placeholder="Name">
+						</div>
+						<div class="field half">
+							<label for="email">Email</label>
+							<input name="email" id="email" type="email" placeholder="Email">
+						</div>
+						<div class="field">
+							<label for="message">Message</label>
+							<textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
+						</div>
+						<ul class="actions">
+							<li><input value="Send Message" class="button alt" type="submit"></li>
+						</ul>
+					</form>
+
+					<div class="copyright">
+						&copy; Untitled. Design: <a href="#">TEMPLATED</a>. Images: <a href="#">Unsplash</a>.
+					</div>
+
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="/static/js/jquery.min.js"></script>
+			<script src="/static/js/skel.min.js"></script>
+			<script src="/static/js/main.js"></script>
+
+{% endblock %}
+</html>

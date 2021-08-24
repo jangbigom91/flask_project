@@ -6,9 +6,6 @@ import urllib.request
 
 app = Flask(__name__)
 
-# 오류 표시, 나중에 배포할 때는 app.debug 지우거나 False로 고쳐주기
-app.debug = True
-
 # Database 연결
 # db = pymysql.connect(
 #     host = 'mydatabase.cr7yob8emqao.us-east-2.rds.amazonaws.com',
@@ -93,6 +90,6 @@ def info():
 #     session.pop('userid', None)
 #     return redirect("/")
 
-
+# 오류 표시, 나중에 배포할 때는 app.debug 지우거나 False로 고쳐주기
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=False, host='0.0.0.0')

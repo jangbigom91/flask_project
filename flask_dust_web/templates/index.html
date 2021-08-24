@@ -16,17 +16,9 @@
 				<div class="inner">
 					<a href="/" class="logo"><strong>Fine Dust</strong> Project</a>
 					<nav id="nav">
-						{% if userid %}
-							<a href="index.html">Home</a>
+							<a href="/">Home</a>
 							<a href="/news">News</a>
 							<a href="/info">Info</a>
-							{{userid}}<a href="/logout">Logout</a>   <!--if문 걸어서 userid 접속했을 때 logout기능 추가-->
-						{% else %}
-							<a href="index.html">Home</a>
-							<a href="/news">News</a>
-							<a href="/info">Info</a>
-							<a href="/login">Login</a>
-						{% endif %}
 					</nav>
 					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars" style="background: #6cc091;"></span></a>
 				</div>
@@ -100,7 +92,7 @@
 			</section>
 
 		<!-- Footer -->
-			<footer id="footer">
+			<!-- <footer id="footer">
 				<div class="inner">
 
 					<h3>Get in touch</h3>
@@ -129,7 +121,7 @@
 					</div>
 
 				</div>
-			</footer>
+			</footer> -->
 
 		<!-- Scripts -->
 			<script src="/static/js/jquery.min.js"></script>

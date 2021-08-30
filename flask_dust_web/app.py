@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, session
 from bs4 import BeautifulSoup
-from passlib.hash import sha256_crypt
+from datetime import datetime
 import pymysql
 import urllib.request
 
@@ -16,7 +16,7 @@ app = Flask(__name__)
 # )
 
 # index page
-@app.route('/', methods = ['GET'])
+@app.route('/', methods = ['GET', 'POST'])
 def index():
     url = 'https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=%EC%98%A4%EB%8A%98+%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80'
 
@@ -29,7 +29,9 @@ def index():
         mydata.append(i.find("span").text)
         # print(i.find("span").text)
 
-    return render_template("index.html", data = mydata)
+    today_time = datetime.today().strftime("%Y/%m/%d %H")
+
+    return render_template("index.html", data = mydata, time = today_time)
 
 # news page
 @app.route('/news', methods = ['GET', 'POST'])
@@ -41,54 +43,6 @@ def news():
 def info():
     return render_template("info.html")
 
-# login page
-# @app.route('/login', methods = ['GET', 'POST'])
-# def login():
-#     cursor = db.cursor()
-    
-#     if request.method == "POST":
-#         userid = request.form['userid']
-#         password = request.form['password']
-
-#         sql = "SELECT * FROM `users` WHERE userid = %s;"
-#         input_data = [userid]
-
-#         cursor.execute(sql, input_data)
-#         user = cursor.fetchone()
-
-#         if user == None:
-#             print(user)
-#             return redirect('/register')
-#         else:
-#             return redirect('/')
-#     else:
-#         return render_template('login.html')
-    
-# # register page
-# @app.route('/register', methods = ['GET', 'POST'])
-# def register():
-#     cursor = db.cursor()
-    
-#     if request.method == "POST":
-#         userid = request.form['userid']
-#         password = sha256_crypt.encrypt(request.form['password'])
-
-#         sql = "INSERT INTO `users` (`userid`, `password`) VALUES (%s, %s);"
-#         input_data = [userid, password]
-
-#         cursor.execute(sql, input_data)
-#         db.commit()
-
-#         # db.close()
-
-#         return redirect("/")
-#     else:
-#         return render_template("register.html")
-
-# @app.route('/logout', methods = ['GET'])
-# def logout():
-#     session.pop('userid', None)
-#     return redirect("/")
 
 # 오류 표시, 나중에 배포할 때는 app.debug 지우거나 False로 고쳐주기
 if __name__ == '__main__':

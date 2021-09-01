@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, session
 from bs4 import BeautifulSoup
-from datetime import datetime
+from datetime import timedelta
+import datetime
 import pymysql
 import urllib.request
 
@@ -29,9 +30,10 @@ def index():
         mydata.append(i.find("span").text)
         # print(i.find("span").text)
 
-    today_time = datetime.today().strftime("%Y/%m/%d %H")
+    now = datetime.datetime.now().strftime('%Y-%m-%d %p%H')
+    tomorrow = datetime.date.today() + datetime.timedelta(days=1)
 
-    return render_template("index.html", data = mydata, time = today_time)
+    return render_template("index.html", data = mydata, time = now, next_time = tomorrow)
 
 # news page
 @app.route('/news', methods = ['GET', 'POST'])

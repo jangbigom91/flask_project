@@ -8,13 +8,13 @@ import urllib.request
 app = Flask(__name__)
 
 # Database 연결
-# db = pymysql.connect(
-#     host = 'mydatabase.cr7yob8emqao.us-east-2.rds.amazonaws.com',
-#     port = 3306,
-#     user = 'admi',
-#     passwd = 'altpaltp12!',
-#     db = 'dust'
-# )
+db = pymysql.connect(
+    host = 'mydatabase.cr7yob8emqao.us-east-2.rds.amazonaws.com',
+    port = 3306,
+    user = 'admin',
+    passwd = 'altpaltp12!',
+    db = 'preprocessed_data'
+)
 
 # index page
 @app.route('/', methods = ['GET', 'POST'])
@@ -45,7 +45,18 @@ def news():
 def info():
     return render_template("info.html")
 
+# show page
+@app.route('/show', methods = ['GET', 'POST'])
+def show():
+    cursor = db.cursor()
+
+    sql = 'SELECT * FROM preprocessed_dataset;'
+
+    cursor.execute(sql)
+    dust = cursor.fetchall()
+
+    return render_template("show.html", data=dust)
 
 # 오류 표시, 나중에 배포할 때는 app.debug 지우거나 False로 고쳐주기
 if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0')

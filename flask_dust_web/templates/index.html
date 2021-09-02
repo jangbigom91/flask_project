@@ -19,6 +19,7 @@
 							<a href="/">Home</a>
 							<a href="/news">News</a>
 							<a href="/info">Info</a>
+							<a href="/show">Show</a>
 					</nav>
 					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars" style="background: #6cc091;"></span></a>
 				</div>
@@ -36,14 +37,14 @@
 							<i class="fas fa-smog"></i>
 							<h3>{{time}}시 PM10</h3>
 							{% for i in data %}
-								<p>서울 {{i}}㎍/m³</p>
+								<p>Seoul {{i}}㎍/m³</p>
 							{% endfor %}
 						</div>
 
 						<div>
 							<i class="fas fa-smog"></i>
 							<h3>{{next_time}} PM10</h3>
-							<p>서울 0.057㎍/m³</p>
+							<p>Seoul 0.057㎍/m³</p>
 						</div>
 
 					</div>

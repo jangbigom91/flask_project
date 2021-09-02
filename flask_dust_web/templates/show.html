@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fine Dust Project</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="{{url_for('static',filename='css/style.css')}}" rel="stylesheet" />
+        <link href="{{url_for('static',filename='css/font-awesome.min.css')}}" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    </head>
+    <style>
+        table {
+            margin-top: 100px;
+        }
+        
+        table tbody tr.column{
+            background: #6cc091;
+        }
+    </style>
+
+    <body class="subpage">
+        {% block body %}
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="/" class="logo"><strong>Fine Dust</strong> Project</a>
+					<nav id="nav">
+						<a href="/">Home</a>
+						<a href="/news">News</a>
+						<a href="/info">Info</a>
+                        <a href="/show">Show</a>
+					</nav>
+					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+				</div>
+			</header>
+
+            <table>
+                <tr class="column">
+                    <th>Date</th>
+                    <th>Temperature</th>
+                    <th>W_speed</th>
+                    <th>W_direction</th>
+                    <th>Humidity</th>
+                    <th>Tianjin</th>
+                    <th>Weihai</th>
+                    <th>Seoul</th>
+                </tr>
+                <tr>
+                    <td>{{data[0]}}</td>
+                    <td>{{data[1]}}</td>
+                    <td>{{data[2]}}</td>
+                    <td>{{data[3]}}</td>
+                    <td>{{data[4]}}</td>
+                    <td>{{data[5]}}</td>
+                    <td>{{data[6]}}</td>
+                    <td>{{data[7]}}</td>
+                </tr>
+            </table>
+        {% endblock %}
+</html>

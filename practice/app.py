@@ -30,12 +30,8 @@ def subject():
     cursor.execute(sql)
 
     subjects = cursor.fetchall()
-    
-    
 
     return render_template('subject.html', data=subjects)
-
-
 
 if __name__ == '__main__':
     app.run(debug=True)

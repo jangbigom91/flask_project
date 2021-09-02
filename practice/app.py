@@ -33,7 +33,7 @@ def subject():
     
     
 
-    return render_template('subject.html')
+    return render_template('subject.html', data=subjects)
 
 
 

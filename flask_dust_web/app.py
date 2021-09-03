@@ -35,17 +35,17 @@ def index():
 
     return render_template("index.html", data = mydata, time = now, next_time = tomorrow)
 
-# show page
-@app.route('/show', methods = ['GET', 'POST'])
-def show():
+# data page
+@app.route('/data', methods = ['GET', 'POST'])
+def data():
     cursor = db.cursor()
-
+    
     sql = 'SELECT * FROM preprocessed_dataset;'
 
     cursor.execute(sql)
     dust = cursor.fetchall()
 
-    return render_template("show.html", data=dust)
+    return render_template("data.html", data=dust)
 
 # process page
 @app.route('/process', methods = ['GET', 'POST'])

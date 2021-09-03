@@ -35,16 +35,6 @@ def index():
 
     return render_template("index.html", data = mydata, time = now, next_time = tomorrow)
 
-# news page
-@app.route('/news', methods = ['GET', 'POST'])
-def news():
-    return render_template("news.html")
-
-# info page
-@app.route('/info', methods = ['GET', 'POST'])
-def info():
-    return render_template("info.html")
-
 # show page
 @app.route('/show', methods = ['GET', 'POST'])
 def show():
@@ -56,6 +46,11 @@ def show():
     dust = cursor.fetchall()
 
     return render_template("show.html", data=dust)
+
+# process page
+@app.route('/process', methods = ['GET', 'POST'])
+def process():
+    return render_template("process.html")
 
 # 오류 표시, 나중에 배포할 때는 app.debug 지우거나 False로 고쳐주기
 if __name__ == '__main__':

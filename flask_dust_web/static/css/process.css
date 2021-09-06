@@ -1,0 +1,17 @@
+table {
+    margin-top: 50px;
+}
+
+table tbody tr.column{
+    background: #6cc091;
+}
+
+th {
+    font-weight: bold;
+}
+
+td {
+    font-weight: bold;
+    font-size: 16px;
+    color: #000;
+}

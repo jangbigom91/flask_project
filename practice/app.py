@@ -1,5 +1,5 @@
 from logging import debug
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from datetime import timedelta
 import datetime
 import pymysql
@@ -32,6 +32,23 @@ def subject():
     subjects = cursor.fetchall()
 
     return render_template('subject.html', data=subjects)
+
+import csv
+@app.route('/pandas', methods = ['GET', 'POST'])
+def pandas():
+    if request.method == 'GET':
+        return render_template('index.html')
+    elif request.method == 'POST':
+        results = []
+
+        user_csv = request.form.get('practice.csv').split('\n')
+        reader = csv.DictReader(user_csv)
+
+        for row in reader:
+            results.append(dict(row))
+        print(results)
+
+        return 'post'
 
 if __name__ == '__main__':
     app.run(debug=True)

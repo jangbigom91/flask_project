@@ -23,21 +23,33 @@ db = pymysql.connect(
 def index():
     ## 네이버 날씨 실시간 크롤링
     url = 'https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=%EC%98%A4%EB%8A%98+%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80'
+    url_tomorrow = 'https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=%EB%82%B4%EC%9D%BC+%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80'
 
     html = urllib.request.urlopen(url).read()
+    html_tomorrow = urllib.request.urlopen(url_tomorrow).read()
+    
     soup = BeautifulSoup(html, 'html.parser')
+    soup_tomorrow = BeautifulSoup(html_tomorrow, 'html.parser')
 
     mydata = []
+    mydata_tomorrow_am = []
+    mydata_tomorrow_pm = []
 
     for i in soup.select('#main_pack > section.sc_new._atmospheric_environment > div > div.api_cs_wrap > div > div:nth-child(3) > div.main_box > div.detail_box > div.tb_scroll > table > tbody > tr:nth-child(1) > td:nth-child(2)'):
         mydata.append(i.find("span").text)
         # print(i.find("span").text)
 
+    for k in soup_tomorrow.select('#main_pack > section.sc_new._atmospheric_environment > div > div.api_cs_wrap > div > div:nth-child(4) > div.main_box > div.detail_box.list3 > div.tb_scroll > table > tbody > tr:nth-child(1) > td:nth-child(2)'):
+        mydata_tomorrow_am.append(k.find("span").text)
+    
+    for j in soup_tomorrow.select('#main_pack > section.sc_new._atmospheric_environment > div > div.api_cs_wrap > div > div:nth-child(4) > div.main_box > div.detail_box.list3 > div.tb_scroll > table > tbody > tr:nth-child(1) > td:nth-child(3)'):
+        mydata_tomorrow_pm.append(j.find("span").text)
+
     # 현재 시간과 내일 시간 표시
     now = datetime.datetime.now().strftime('%Y-%m-%d %p%H')
     tomorrow = datetime.date.today() + datetime.timedelta(days=1)
 
-    return render_template("index.html", data = mydata, time = now, next_time = tomorrow)
+    return render_template("index.html", data = mydata, time = now, next_time = tomorrow, data_tomorrow_am = mydata_tomorrow_am, data_tomorrow_pm = mydata_tomorrow_pm)
 
 # process page
 @app.route('/process', methods = ['GET', 'POST'])

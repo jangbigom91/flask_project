@@ -3,6 +3,20 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link href="{{url_for('static',filename='css/data_result.css')}}" rel="stylesheet" />
+        <link href="{{url_for('static',filename='css/style.css')}}" rel="stylesheet" />
     </head>
-    {{ data | safe}}
+    <body class="subpage">
+        <header id="header">
+            <div class="inner">
+                <a href="/" class="logo"><strong>Fine Dust</strong> Project</a>
+                <nav id="nav">
+                    <a href="/">Home</a>
+                    <a href="/process">Process</a>
+                    <a href="/data">Data</a>
+                </nav>
+                <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+            </div>
+        </header>
+        {{ data | safe}}
+    </body>
 </html>

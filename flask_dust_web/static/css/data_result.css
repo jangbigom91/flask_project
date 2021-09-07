@@ -1,0 +1,23 @@
+tbody tr:nth-child(1) {
+    background-color: #6cc091;
+    font-weight: bold;
+}
+
+tbody > tr:nth-child(n+2) > td:nth-child(1) {
+    background-color: #ddfada ;
+    font-weight: bold;
+}
+
+tbody > tr:nth-child(odd) > td:nth-child(n+2) {
+    text-align: center;
+    font-weight: bold;
+}
+
+tbody > tr:nth-child(even) > td:nth-child(n+2) {
+    text-align: center;
+    font-weight: bold;
+}
+
+
+
+

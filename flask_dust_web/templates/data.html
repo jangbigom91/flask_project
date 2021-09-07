@@ -9,7 +9,7 @@
         <link href="{{url_for('static',filename='css/font-awesome.min.css')}}" rel="stylesheet" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     </head>
-
+    
     <body class="subpage">
         {% block body %}
 
@@ -34,10 +34,17 @@
                     <div class="flex ">
 						<form class="data" action="data_result" method="post">
                             <input type="file" name="csvfile" value="" style="cursor: pointer;">
-                            <input type="submit" name="" value="submit">
+                            <button id="submitForm">SUBMIT</button>
                         </form>
 					</div>
                 </div>
             </section>
+
+            <script src="/static/js/jquery.min.js"></script>
+            <script>
+                $('#submitForm').click(function(){
+                    alert("데이터결과를 보시겠습니까?");
+                });
+            </script>
         {% endblock %}
 </html>

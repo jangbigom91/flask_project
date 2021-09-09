@@ -86,6 +86,20 @@ def data_result():
         
         return render_template('data_result.html', data=data.to_html(header=False, index=False))
 
+# predict page
+@app.route('/predict', methods = ['GET', 'POST'])
+def predict():
+    import tensorflow as tf
+
+    model = tf.keras.models.load_model('model\LCNN_five(tem,hum).h5')
+
+
+
+
+
+
+    return render_template('predict.html')
+
 # 오류 표시, 나중에 배포할 때는 app.debug 지우거나 False로 고쳐주기
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')

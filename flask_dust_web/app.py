@@ -92,13 +92,11 @@ def predict():
     import tensorflow as tf
 
     model = tf.keras.models.load_model('model\LCNN_five(tem,hum).h5')
+    a = '2021-09-11', '38','47','23','33','25','43','24'
 
-
-
-
-
-
-    return render_template('predict.html')
+    b = model.predict(a)
+    
+    return render_template('predict.html', data=b)
 
 # 오류 표시, 나중에 배포할 때는 app.debug 지우거나 False로 고쳐주기
 if __name__ == '__main__':

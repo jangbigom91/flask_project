@@ -35,21 +35,21 @@
 					<div class="flex ">
 						<div>
 							<i class="fas fa-smog"></i>
-							<h3>{{time}}시 PM10</h3>
+							<h3>{{ time }}시 PM10</h3>
 							{% for i in data %}
-								<p>Seoul {{i}}㎍/m³</p>
+								<p>Seoul {{ i }}㎍/m³</p>
 							{% endfor %}
 						</div>
 
 						<div>
 							<i class="fas fa-smog"></i>
-							<h3>{{next_time}} PM10</h3>
+							<h3>{{ next_time }} PM10</h3>
 							{% for k in data_tomorrow_am %}
-								<p>Seoul 오전 미세먼지 예측값 : {{k}}</p>
+								<p>Seoul 오전 미세먼지 예측값 : {{ k }}</p>
 							{% endfor %}
 							
 							{% for j in data_tomorrow_pm %}
-								<p>Seoul 오후 미세먼지 예측값 : {{j}}</p>
+								<p>Seoul 오후 미세먼지 예측값 : {{ j }}</p>
 							{% endfor %}
 						</div>
 					</div>

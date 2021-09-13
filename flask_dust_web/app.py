@@ -316,7 +316,6 @@ def predict():
         level_2_count = y_true_lv.count(2)
         level_3_count = y_true_lv.count(3)
         level_4_count = y_true_lv.count(4)
-                
         
         error_rate_temp = []
         
@@ -338,7 +337,6 @@ def predict():
         
         total_acc = sum(error_rate_temp) / len(error_rate_temp)
         
-        
         level_1_accuracy = float(level_1_acc / level_1_count)
         level_2_accuracy = float(level_2_acc / level_2_count)
         level_3_accuracy = float(level_3_acc / level_3_count)
@@ -350,13 +348,14 @@ def predict():
         
     # 정확도 결과
     total_acc, level_acc = error_check(y_true, y_pred)
-    model_acc = print("total accuracy:", total_acc)
-    b = print("level 'Good' accuracy:", level_acc[0])
-    c = print("level 'Normal' accuracy:", level_acc[1])
-    d = print("level 'Bad' accuracy:", level_acc[2])
-    e = print("level 'Very Bad' accuracy:", level_acc[3])
+    
+    model_acc = total_acc
+    good_level = level_acc[0]
+    normal_level = level_acc[1]
+    bad_level = level_acc[2]
+    very_bad_level = level_acc[3]
 
-    return render_template("predict.html", data=model_acc)
+    return render_template("predict.html", data=model_acc, data_1=good_level, data_2=normal_level, data_3=bad_level, data4=very_bad_level)
 
 # 오류 표시, 나중에 배포할 때는 app.debug 지우거나 False로 고쳐주기
 if __name__ == '__main__':

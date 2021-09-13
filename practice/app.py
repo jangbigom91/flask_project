@@ -50,5 +50,34 @@ def pandas():
 
         return 'post'
 
+@app.route('/plot', methods = ['GET', 'POST'])
+def plot():
+    # import pandas as pd
+    # import plotly.express as px
+
+    # df = pd.read_csv('PM10_seoul.csv')
+
+    # fig = px.line(df, x='Date', y='Seoul', title='PM10 of Seoul(2014~2021)')
+
+    # fig_seoul = fig.show()
+
+    # return render_template('plot.html', data=fig_seoul)
+
+    import plotly.graph_objects as go
+    import pandas as pd
+    
+    df = pd.read_csv('PM10_seoul.csv')
+
+    fig = go.Figure(go.Scatter(x = df['Date'], y = df['Seoul'],
+                            name='PM10'))
+
+    fig.update_layout(title='PM10 of Seoul',
+                    plot_bgcolor='rgb(230, 230, 230)',
+                    showlegend=True)
+
+    fig_seoul = fig.show()
+
+    return render_template('plot.html', data=fig_seoul)
+
 if __name__ == '__main__':
     app.run(debug=True)

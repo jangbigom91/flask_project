@@ -259,9 +259,10 @@ def error_check(true, pred):
     
 # 정확도 결과
 total_acc, level_acc = error_check(y_true, y_pred)
-print("total accuracy:", total_acc)
-print("level 'Good' accuracy:", level_acc[0])
-print("level 'Normal' accuracy:", level_acc[1])
-print("level 'Bad' accuracy:", level_acc[2])
-print("level 'Very Bad' accuracy:", level_acc[3])
+
+model_acc = total_acc
+good_level = level_acc[0]
+normal_level = level_acc[1]
+bad_level = level_acc[2]
+very_bad_level = level_acc[3]
 

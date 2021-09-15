@@ -52,32 +52,25 @@ def pandas():
 
 @app.route('/plot', methods = ['GET', 'POST'])
 def plot():
-    # import pandas as pd
-    # import plotly.express as px
-
-    # df = pd.read_csv('PM10_seoul.csv')
-
-    # fig = px.line(df, x='Date', y='Seoul', title='PM10 of Seoul(2014~2021)')
-
-    # fig_seoul = fig.show()
-
-    # return render_template('plot.html', data=fig_seoul)
-
-    import plotly.graph_objects as go
+    import matplotlib as mpl
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+    import numpy as np
     import pandas as pd
-    
-    df = pd.read_csv('PM10_seoul.csv')
+    from dateutil.parser import parse
 
-    fig = go.Figure(go.Scatter(x = df['Date'], y = df['Seoul'],
-                            name='PM10'))
+    df = pd.read_csv('raw_dataset_plus.csv', parse_dates=['Date'], index_col='Date')
 
-    fig.update_layout(title='PM10 of Seoul',
-                    plot_bgcolor='rgb(230, 230, 230)',
-                    showlegend=True)
+    def plot_df(df, x, y, title="", xlabel='Date', ylabel='Seoul', dpi=100):
+        plt.figure(figsize=(16, 5), dpi=dpi)
+        plt.plot(x, y, color='tab:red')
+        plt.gca().set(title=title, xlabel=xlabel, ylabel=ylabel)
+        plt.show()
 
-    fig_seoul = fig.show()
+    a = plot_df(df, x=df.index, y=df.Seoul, title='PM10 of Seoul from 2014 to 2021.')
 
-    return render_template('plot.html', data=fig_seoul)
+    return render_template('plot.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)

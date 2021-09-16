@@ -95,10 +95,16 @@ def predict():
 
 @app.route('/graph', methods = ['GET', 'POST'])
 def graph():
+    return render_template('graph.html')
+
+@app.route('/seoul_graph', methods = ['GET', 'POST'])
+def seoul_graph():
     import pandas as pd
     import numpy as np
     import seaborn as sns
     import matplotlib as mpl
+    import matplotlib
+    matplotlib.use('TkAgg')
     import matplotlib.pyplot as plt
     from dateutil.parser import parse
 
@@ -110,9 +116,110 @@ def graph():
         plt.gca().set(title=title, xlabel=xlabel, ylabel=ylabel)
         plt.show()
 
-    graph_seoul = plot_df(df, x=df.index, y=df.Seoul, title='PM10 of Seoul from 2014 to 2021.')
+        plt.close()
 
-    return render_template('graph.html', data=graph_seoul)
+    graph_seoul = plot_df(df, x=df.index, y=df.Seoul, title='PM10 of Seoul from 2014 to 2021.')
+    
+    # 인덱스 컬럼(Date)을 데이터 컬럼으로 바꾸고 순번으로 인덱스 변경
+    df.reset_index(inplace=True)
+
+    # Date컬럼에서 년도, 월을 분리
+    df['year'] = [d.year for d in df.Date]
+    df['month'] = [d.strftime('%b') for d in df.Date]
+
+    # 도표 작성
+    fig, axes = plt.subplots(1, 2, figsize=(18, 7), dpi=100)
+    sns.boxplot(x='year', y='Seoul', data=df, ax=axes[0])
+    sns.boxplot(x='month', y='Seoul', data=df, ax=axes[1])
+
+    # 제목 설정
+    axes[0].set_title('PM10 of Seoul(2014~2021 year)', fontsize=18)
+    axes[1].set_title('PM10 of Seoul(2014~2021 month)', fontsize=18)
+
+    plt.show()
+    plt.close()
+
+    return render_template('graph.html')
+
+@app.route('/tianjin_graph', methods = ['GET', 'POST'])
+def tianjin_graph():
+    import pandas as pd
+    import numpy as np
+    import seaborn as sns
+    import matplotlib as mpl
+    import matplotlib
+    matplotlib.use('TkAgg')
+    import matplotlib.pyplot as plt
+    from dateutil.parser import parse
+
+    df = pd.read_csv('raw_dataset_plus.csv', parse_dates=['Date'], index_col='Date')
+
+    def plot_df(df, x, y, title="", xlabel='Date', ylabel='Tianjin', dpi=100):
+        plt.figure(figsize=(16, 5), dpi=dpi)
+        plt.plot(x, y, color='tab:red')
+        plt.gca().set(title=title, xlabel=xlabel, ylabel=ylabel)
+        plt.show()
+
+        plt.close()
+
+    graph_Tianjin = plot_df(df, x=df.index, y=df.Tianjin, title='PM10 of Tianjin from 2014 to 2021.')
+    
+    df.reset_index(inplace=True)
+
+    df['year'] = [d.year for d in df.Date]
+    df['month'] = [d.strftime('%b') for d in df.Date]
+
+    fig, axes = plt.subplots(1, 2, figsize=(18, 7), dpi=100)
+    sns.boxplot(x='year', y='Tianjin', data=df, ax=axes[0])
+    sns.boxplot(x='month', y='Tianjin', data=df, ax=axes[1])
+
+    axes[0].set_title('PM10 of Tianjin(2014~2021 year)', fontsize=18)
+    axes[1].set_title('PM10 of Tianjin(2014~2021 month)', fontsize=18)
+
+    plt.show()
+    plt.close()
+
+    return render_template('graph.html')
+
+@app.route('/weihai_graph', methods = ['GET', 'POST'])
+def weihai_graph():
+    import pandas as pd
+    import numpy as np
+    import seaborn as sns
+    import matplotlib as mpl
+    import matplotlib
+    matplotlib.use('TkAgg')
+    import matplotlib.pyplot as plt
+    from dateutil.parser import parse
+
+    df = pd.read_csv('raw_dataset_plus.csv', parse_dates=['Date'], index_col='Date')
+
+    def plot_df(df, x, y, title="", xlabel='Date', ylabel='Weihai', dpi=100):
+        plt.figure(figsize=(16, 5), dpi=dpi)
+        plt.plot(x, y, color='tab:red')
+        plt.gca().set(title=title, xlabel=xlabel, ylabel=ylabel)
+        plt.show()
+
+        plt.close()
+
+    graph_Weihai = plot_df(df, x=df.index, y=df.Weihai, title='PM10 of Weihai from 2014 to 2021.')
+    
+    df.reset_index(inplace=True)
+
+    df['year'] = [d.year for d in df.Date]
+    df['month'] = [d.strftime('%b') for d in df.Date]
+
+    fig, axes = plt.subplots(1, 2, figsize=(18, 7), dpi=100)
+    sns.boxplot(x='year', y='Weihai', data=df, ax=axes[0])
+    sns.boxplot(x='month', y='Weihai', data=df, ax=axes[1])
+
+    axes[0].set_title('PM10 of Weihai(2014~2021 year)', fontsize=18)
+    axes[1].set_title('PM10 of Weihai(2014~2021 month)', fontsize=18)
+
+    plt.show()
+    plt.close()
+
+    return render_template('graph.html')
 
 # 오류 표시, 나중에 배포할 때는 app.debug 지우거나 False로 고쳐주기
 if __name__ == '__main__':

@@ -48,50 +48,51 @@ def index():
     # 현재 시간과 내일 시간 표시
     now = datetime.datetime.now().strftime('%Y-%m-%d %p%H')
     tomorrow = datetime.date.today() + datetime.timedelta(days=1)
+    tomorrow_after = datetime.date.today() + datetime.timedelta(days=2)
 
-    return render_template("index.html", data = mydata, time = now, next_time = tomorrow, data_tomorrow_am = mydata_tomorrow_am, data_tomorrow_pm = mydata_tomorrow_pm)
+    return render_template("index.html", data = mydata, time = now, next_time = tomorrow, next_time_after = tomorrow_after, data_tomorrow_am = mydata_tomorrow_am, data_tomorrow_pm = mydata_tomorrow_pm)
 
 # process page
 @app.route('/process', methods = ['GET', 'POST'])
 def process():
     return render_template("process.html")
 
-# data page
-@app.route('/data', methods = ['GET', 'POST'])
-def data():
-    # cursor = db.cursor()
+# # data page
+# @app.route('/data', methods = ['GET', 'POST'])
+# def data():
+#     # cursor = db.cursor()
     
-    # sql = 'SELECT * FROM preprocessed_dataset;'
+#     # sql = 'SELECT * FROM preprocessed_dataset;'
 
-    # cursor.execute(sql)
-    # dust = cursor.fetchall()
+#     # cursor.execute(sql)
+#     # dust = cursor.fetchall()
 
-    # return render_template("data.html", data=dust)
-    return render_template('data.html')
+#     # return render_template("data.html", data=dust)
+#     return render_template('data.html')
 
 # data_result page
-@app.route('/data_result', methods = ['GET', 'POST'])
-def data_result():
-    # csv파일을 DataFrame으로 구현
-    if request.method == 'POST':
-        f = request.form['csvfile']
-        data = []
+# @app.route('/data_result', methods = ['GET', 'POST'])
+# def data_result():
+#     # csv파일을 DataFrame으로 구현
+#     if request.method == 'POST':
+#         f = request.form['csvfile']
+#         data = []
 
-        with open(f) as file:
-            csvfile = csv.reader(file)
-            for row in csvfile:
-                data.append(row)
+#         with open(f) as file:
+#             csvfile = csv.reader(file)
+#             for row in csvfile:
+#                 data.append(row)
         
-        data = pd.DataFrame(data)
+#         data = pd.DataFrame(data)
         
-        return render_template('data_result.html', data=data.to_html(header=False, index=False))
+#         return render_template('data_result.html', data=data.to_html(header=False, index=False))
 
 # predict page
-@app.route('/predict', methods = ['GET', 'POST'])
-def predict():
-    import model
+# @app.route('/predict', methods = ['GET', 'POST'])
+# def predict():
+#     import model
 
-    return render_template("predict.html", data=model.model_acc, data_1=model.good_level, data_2=model.normal_level, data_3=model.bad_level, data4=model.very_bad_level)
+#     return render_template("predict.html", data=model.model_acc, data_1=model.good_level, data_2=model.normal_level, data_3=model.bad_level, data4=model.very_bad_level)
 
 @app.route('/graph', methods = ['GET', 'POST'])
 def graph():
@@ -220,6 +221,10 @@ def weihai_graph():
     plt.close()
 
     return render_template('graph.html')
+
+@app.route('/reference', methods = ['GET', 'POST'])
+def reference():
+    return render_template('reference.html')
 
 # 오류 표시, 나중에 배포할 때는 app.debug 지우거나 False로 고쳐주기
 if __name__ == '__main__':

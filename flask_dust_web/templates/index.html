@@ -18,9 +18,10 @@
 					<nav id="nav">
 							<a href="/">Home</a>
 							<a href="/process">Process</a>
-							<a href="/data">Data</a>
-							<a href="/predict">Predict</a>
+							<!-- <a href="/data">Data</a>
+							<a href="/predict">Predict</a> -->
 							<a href="/graph">Graph</a>
+							<a href="/reference">Reference</a>
 					</nav>
 					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars" style="background: #6cc091;"></span></a>
 				</div>
@@ -36,9 +37,9 @@
 					<div class="flex ">
 						<div>
 							<i class="fas fa-smog"></i>
-							<h3>{{ time }}시 PM10</h3>
+							<h3>{{ time }}시</h3>
 							{% for i in data %}
-								<p>Seoul {{ i }}㎍/m³</p>
+								<p>Seoul PM10 {{ i }}㎍/m³</p>
 							{% endfor %}
 						</div>
 
@@ -46,17 +47,28 @@
 							<i class="fas fa-smog"></i>
 							<h3>{{ next_time }} PM10</h3>
 							{% for k in data_tomorrow_am %}
-								<p>Seoul 오전 미세먼지 예측값 : {{ k }}</p>
+								<p>Seoul PM10 {{ k }}㎍/m³</p>
 							{% endfor %}
 							
 							{% for j in data_tomorrow_pm %}
-								<p>Seoul 오후 미세먼지 예측값 : {{ j }}</p>
+								<p style="font-size: 15px;">Seoul PM10 등급 : {{ j }}</p>
+							{% endfor %}
+						</div>
+						<div>
+							<i class="fas fa-smog"></i>
+							<h3>{{ next_time_after }} PM10</h3>
+							{% for k in data_tomorrow_am %}
+								<p>Seoul PM10 {{ k }}㎍/m³</p>
+							{% endfor %}
+							
+							{% for j in data_tomorrow_pm %}
+								<p style="font-size: 15px;">Seoul PM10 등급 : {{ j }}</p>
 							{% endfor %}
 						</div>
 					</div>
 
 					<footer>
-						<a href="/" class="button">Reset</a>
+						<a href="/" class="button">REFRESH</a>
 					</footer>
 				</div>
 			</section>
@@ -80,14 +92,14 @@
 						</article>
 						<article>
 							<div class="image round">
-								<img src="static/images/data_150.png" alt="data" />
+								<img src="static/images/dust_graph.png" alt="graph" />
 							</div>
 							<header>
-								<h3>About<br />Fine Dust Data</h3>
+								<h3>About<br />Fine Dust Graph</h3>
 							</header>
-							<p>Check out the fine dust project data here.<br /></p>
+							<p>Check out the fine dust project graph here.<br /></p>
 							<footer>
-								<a href="/data" class="button">Learn More</a>
+								<a href="/graph" class="button">Learn More</a>
 							</footer>
 						</article>
 					</div>

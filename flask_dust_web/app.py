@@ -50,7 +50,9 @@ def index():
     tomorrow = datetime.date.today() + datetime.timedelta(days=1)
     tomorrow_after = datetime.date.today() + datetime.timedelta(days=2)
 
-    return render_template("index.html", data = mydata, time = now, next_time = tomorrow, next_time_after = tomorrow_after, data_tomorrow_am = mydata_tomorrow_am, data_tomorrow_pm = mydata_tomorrow_pm)
+    import model
+
+    return render_template("index.html", data = mydata, time = now, next_time = tomorrow, next_time_after = tomorrow_after, data_tomorrow_am = mydata_tomorrow_am, data_tomorrow_pm = mydata_tomorrow_pm, tomorrow_dust = model.tomorrow_dust)
 
 # process page
 @app.route('/process', methods = ['GET', 'POST'])

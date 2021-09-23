@@ -19,7 +19,7 @@ tf.random.set_seed(0)
 
 delta = 1e-7
 seq_len = 30
-test_date = 257
+test_date = 365
 factor_num = 4
 
 level_1 = 50
@@ -316,9 +316,225 @@ def error_check(true, pred):
 ## 정확도 결과
 total_acc, level_acc = error_check(y_true, y_pred)
 
-model_acc = total_acc
-good_level = level_acc[0]
-normal_level = level_acc[1]
-bad_level = level_acc[2]
-very_bad_level = level_acc[3]
-    
+# model_acc = total_acc
+# good_level = level_acc[0]
+# normal_level = level_acc[1]
+# bad_level = level_acc[2]
+# very_bad_level = level_acc[3]
+
+date = [20210923, 20210924, 20210925, 20210926, 20210927, 20210928, 2021929, 20210930, 
+        20211001, 20211002, 20211003, 20211004, 20211005, 20211006, 20211007, 20211008, 20211009, 20211010,
+        20211011, 20211012, 20211013, 20211014, 20211015, 20211016, 20211017, 20211018, 20211019, 20211020,
+        20211021, 20211022, 20211023, 20211024, 20211025, 20211026, 20211027, 20211028, 20211029, 20211030, 20211031,
+        20211101, 20211102, 20211103, 20211104, 20211105, 20211106, 20211107, 20211108, 20211109, 20211110,
+        20211111, 20211112, 20211113, 20211114, 20211115, 20211116, 20211117, 20211118, 20211119, 20211120,
+        20211121, 20211122, 20211123, 20211124, 20211125, 20211126, 20211127, 20211128, 20211129, 20211130,
+        20211201, 20211202, 20211203, 20211204, 20211205, 20211206, 20211207, 20211208, 20211209, 20211210,
+        20211211, 20211212, 20211213, 20211214, 20211215, 20211216, 20211217, 20211218, 20211219, 20211220,
+        20211221, 20211222, 20211223, 20211224, 20211225, 20211226, 20211227, 20211228, 20211229, 20211230, 20211231]
+
+def date_indexing(date) :
+    if date == '20210923' :
+        return y_pred[265]
+    elif date == '20210924' :
+        return y_pred[266]
+    elif date == '20210925' :
+        return data[267]
+    elif date == '20210926' :
+        return data[268]
+    elif date == '20210927' :
+        return data[269]
+    elif date == '20210928' :
+        return data[270]
+    elif date == '20210929' :
+        return data[271]
+    elif date == '20210930' :
+        return data[272]
+    elif date == '20211001' :
+        return data[273]
+    elif date == '20211002' :
+        return data[274]
+    elif date == '20211003' :
+        return data[275]
+    elif date == '20211004' :
+        return data[276]
+    elif date == '20211005' :
+        return data[277]
+    elif date == '20211006' :
+        return data[278]
+    elif date == '20211007' :
+        return data[279]
+    elif date == '20211008' :
+        return data[280]
+    elif date == '20211009' :
+        return data[281]
+    elif date == '20211010' :
+        return data[282]
+    elif date == '20211011' :
+        return data[283]
+    elif date == '20211012' :
+        return data[284]
+    elif date == '20211013' :
+        return data[285]
+    elif date == '20211014' :
+        return data[286]
+    elif date == '20211015' :
+        return data[287]
+    elif date == '20211016' :
+        return data[288]
+    elif date == '20211017' :
+        return data[289]
+    elif date == '20211018' :
+        return data[290]
+    elif date == '20211019' :
+        return data[291]
+    elif date == '20211020' :
+        return data[292]
+    elif date == '20211021' :
+        return data[293]
+    elif date == '20211022' :
+        return data[294]
+    elif date == '20211023' :
+        return data[295]
+    elif date == '20211024' :
+        return data[296]
+    elif date == '20211025' :
+        return data[297]
+    elif date == '20211026' :
+        return data[298]
+    elif date == '20211027' :
+        return data[299]
+    elif date == '20211028' :
+        return data[300]
+    elif date == '20211029' :
+        return data[301]
+    elif date == '20211030' :
+        return data[302]
+    elif date == '20211031' :
+        return data[303]
+    elif date == '20211101' :
+        return data[304]
+    elif date == '20211102' :
+        return data[305]
+    elif date == '20211103' :
+        return data[306]
+    elif date == '20211104' :
+        return data[307]
+    elif date == '20211105' :
+        return data[308]
+    elif date == '20211106' :
+        return data[309]
+    elif date == '20211107' :
+        return data[310]
+    elif date == '20211108' :
+        return data[311]
+    elif date == '20211109' :
+        return data[312]
+    elif date == '20211110' :
+        return data[313]
+    elif date == '20211111' :
+        return data[314]
+    elif date == '20211112' :
+        return data[315]
+    elif date == '20211113' :
+        return data[316]
+    elif date == '20211114' :
+        return data[317]
+    elif date == '20211115' :
+        return data[318]
+    elif date == '20211116' :
+        return data[319]
+    elif date == '20211117' :
+        return data[320]
+    elif date == '20211118' :
+        return data[321]
+    elif date == '20211119' :
+        return data[322]
+    elif date == '20211120' :
+        return data[323]
+    elif date == '20211121' :
+        return data[324]
+    elif date == '20211122' :
+        return data[325]
+    elif date == '20211123' :
+        return data[326]
+    elif date == '20211124' :
+        return data[327]
+    elif date == '20211125' :
+        return data[328]
+    elif date == '20211126' :
+        return data[329]
+    elif date == '20211127' :
+        return data[330]
+    elif date == '20211128' :
+        return data[331]
+    elif date == '20211129' :
+        return data[332]
+    elif date == '20211130' :
+        return data[333]
+    elif date == '20211201' :
+        return data[334]
+    elif date == '20211202' :
+        return data[335]
+    elif date == '20211203' :
+        return data[336]
+    elif date == '20211204' :
+        return data[337]
+    elif date == '20211205' :
+        return data[338]
+    elif date == '20211206' :
+        return data[339]
+    elif date == '20211207' :
+        return data[340]
+    elif date == '20211208' :
+        return data[341]
+    elif date == '20211209' :
+        return data[342]
+    elif date == '20211210' :
+        return data[343]
+    elif date == '20211211' :
+        return data[344]
+    elif date == '20211212' :
+        return data[345]
+    elif date == '20211213' :
+        return data[346]
+    elif date == '20211214' :
+        return data[347]
+    elif date == '20211215' :
+        return data[348]
+    elif date == '20211216' :
+        return data[349]
+    elif date == '20211217' :
+        return data[350]
+    elif date == '20211218' :
+        return data[351]
+    elif date == '20211219' :
+        return data[352]
+    elif date == '20211220' :
+        return data[353]
+    elif date == '20211221' :
+        return data[354]
+    elif date == '20211222' :
+        return data[355]
+    elif date == '20211223' :
+        return data[356]
+    elif date == '20211224' :
+        return data[357]
+    elif date == '20211225' :
+        return data[358]
+    elif date == '20211226' :
+        return data[359]
+    elif date == '20211227' :
+        return data[360]
+    elif date == '20211228' :
+        return data[361]
+    elif date == '20211229' :
+        return data[362]
+    elif date == '20211230' :
+        return data[363]
+    elif date == '20211231' :
+        return data[364]
+
+tomorrow_dust = date_indexing('20210924')
+# round(tomorrow_dust)
+# after_tomorrow_dust = date_indexing('20210925')

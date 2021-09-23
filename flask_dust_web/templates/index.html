@@ -46,9 +46,10 @@
 						<div>
 							<i class="fas fa-smog"></i>
 							<h3>{{ next_time }} PM10</h3>
-							{% for k in data_tomorrow_am %}
+							<!-- {% for k in data_tomorrow_am %}
 								<p>Seoul PM10 {{ k }}㎍/m³</p>
-							{% endfor %}
+							{% endfor %} -->
+							<p>Seoul PM10 {{ tomorrow_dust }}㎍/m³</p>
 							
 							{% for j in data_tomorrow_pm %}
 								<p style="font-size: 15px;">Seoul PM10 등급 : {{ j }}</p>

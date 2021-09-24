@@ -241,7 +241,14 @@ def reference():
 # dust_predict page
 @app.route('/dust_predict', methods = ['GET', 'POST'])
 def dust_predict():
-    return render_template('dust_predict.html')
+    if request.form == 'POST':
+        predict_date = request.form
+    return render_template('dust_predict.html', predict_date = predict_date)
+
+# dust_predict_result page
+@app.route('/dust_predict_result', methods = ['GET', 'POST'])
+def dust_predict_result():
+    return render_template('dust_predict_result.html')
 
 
 # 오류 표시, 나중에 배포할 때는 app.debug 지우거나 False로 고쳐주기

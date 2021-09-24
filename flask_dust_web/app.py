@@ -22,8 +22,8 @@ db = pymysql.connect(
 @app.route('/', methods = ['GET', 'POST'])
 def index():
     ## 네이버 날씨 실시간 크롤링
-    url = 'https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=%EC%98%A4%EB%8A%98+%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80'
-    url_tomorrow = 'https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=%EB%82%B4%EC%9D%BC+%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80'
+    url = 'https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=%EC%98%A4%EB%8A%98+%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80' # 오늘 미세먼지(서울) url
+    url_tomorrow = 'https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=%EB%82%B4%EC%9D%BC+%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80' # 내일 미세먼지(서울) url
 
     html = urllib.request.urlopen(url).read()
     html_tomorrow = urllib.request.urlopen(url_tomorrow).read()
@@ -31,28 +31,33 @@ def index():
     soup = BeautifulSoup(html, 'html.parser')
     soup_tomorrow = BeautifulSoup(html_tomorrow, 'html.parser')
 
-    mydata = []
-    mydata_tomorrow_am = []
-    mydata_tomorrow_pm = []
+    mydata = [] # mydata 안에 오늘 미세먼지(서울) 저장
+    mydata_tomorrow_am = [] # mydata_tomorrow_am 안에 내일 오전 미세먼지(서울) 등급 저장
+    mydata_tomorrow_pm = [] # mydata_tomorrow_pm 안에 내일 오후 미세먼지(서울) 등급 저장
 
+    # 네이버 오늘 미세먼지(서울) 데이터 크롤링
     for i in soup.select('#main_pack > section.sc_new._atmospheric_environment > div > div.api_cs_wrap > div > div:nth-child(3) > div.main_box > div.detail_box > div.tb_scroll > table > tbody > tr:nth-child(1) > td:nth-child(2)'):
         mydata.append(i.find("span").text)
         # print(i.find("span").text)
 
+    # 네이버 내일 오전 미세먼지(서울) 등급 크롤링
     for k in soup_tomorrow.select('#main_pack > section.sc_new._atmospheric_environment > div > div.api_cs_wrap > div > div:nth-child(4) > div.main_box > div.detail_box.list3 > div.tb_scroll > table > tbody > tr:nth-child(1) > td:nth-child(2)'):
         mydata_tomorrow_am.append(k.find("span").text)
     
+    # 네이버 내일 오후 미세먼지(서울) 등급 크롤링
     for j in soup_tomorrow.select('#main_pack > section.sc_new._atmospheric_environment > div > div.api_cs_wrap > div > div:nth-child(4) > div.main_box > div.detail_box.list3 > div.tb_scroll > table > tbody > tr:nth-child(1) > td:nth-child(3)'):
         mydata_tomorrow_pm.append(j.find("span").text)
 
     # 현재 시간과 내일 시간 표시
-    now = datetime.datetime.now().strftime('%Y-%m-%d %p%H')
+    now = datetime.datetime.now().strftime('%Y-%m-%d')
     tomorrow = datetime.date.today() + datetime.timedelta(days=1)
     tomorrow_after = datetime.date.today() + datetime.timedelta(days=2)
 
+    # model.py 불러오기
     import model
 
-    return render_template("index.html", data = mydata, time = now, next_time = tomorrow, next_time_after = tomorrow_after, data_tomorrow_am = mydata_tomorrow_am, data_tomorrow_pm = mydata_tomorrow_pm, tomorrow_dust = model.tomorrow_dust)
+    return render_template("index.html", data = mydata, time = now, next_time = tomorrow, next_time_after = tomorrow_after, data_tomorrow_am = mydata_tomorrow_am, data_tomorrow_pm = mydata_tomorrow_pm, tomorrow_dust = model.tomorrow_dust,
+                            after_tomorrow_dust = model.after_tomorrow_dust)
 
 # process page
 @app.route('/process', methods = ['GET', 'POST'])
@@ -96,10 +101,12 @@ def process():
 
 #     return render_template("predict.html", data=model.model_acc, data_1=model.good_level, data_2=model.normal_level, data_3=model.bad_level, data4=model.very_bad_level)
 
+# graph page
 @app.route('/graph', methods = ['GET', 'POST'])
 def graph():
     return render_template('graph.html')
 
+# seoul pm10 graph page
 @app.route('/seoul_graph', methods = ['GET', 'POST'])
 def seoul_graph():
     import pandas as pd
@@ -144,6 +151,7 @@ def seoul_graph():
 
     return render_template('graph.html')
 
+# tianjin pm10 graph page
 @app.route('/tianjin_graph', methods = ['GET', 'POST'])
 def tianjin_graph():
     import pandas as pd
@@ -184,6 +192,7 @@ def tianjin_graph():
 
     return render_template('graph.html')
 
+# weihai pm10 graph page
 @app.route('/weihai_graph', methods = ['GET', 'POST'])
 def weihai_graph():
     import pandas as pd
@@ -224,9 +233,16 @@ def weihai_graph():
 
     return render_template('graph.html')
 
+# reference page
 @app.route('/reference', methods = ['GET', 'POST'])
 def reference():
     return render_template('reference.html')
+
+# dust_predict page
+@app.route('/dust_predict', methods = ['GET', 'POST'])
+def dust_predict():
+    return render_template('dust_predict.html')
+
 
 # 오류 표시, 나중에 배포할 때는 app.debug 지우거나 False로 고쳐주기
 if __name__ == '__main__':

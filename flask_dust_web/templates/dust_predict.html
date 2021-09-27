@@ -22,6 +22,7 @@
 						<a href="/process">Process</a>
 						<a href="/graph">Graph</a>
 						<a href="/reference">Reference</a>
+                        <a href="/dust_predict">Predict</a>
                         <!-- <a href="/data">Data</a>
                         <a href="/predict">Predict</a> -->
 					</nav>
@@ -34,14 +35,16 @@
 					<header>
 						<h1>Fine Dust Predict</h1>
 					</header>
-                    <form action="#" method="POST">
-                        <p><input type="text" value="날짜를 입력하세요 : ex)20210901"></p>
-                        <p><input type="submit" value="Predict" id="submitForm"></p>
+                    <form action="/dust_predict_result" method="GET">
+                        <input type="text" name="date" placeholder="날짜를 입력하세요 : ex) 20210927">
+                        <div>
+                            <button type="submit" id="submitForm" style="margin-top: 10px;">예측하기</button>
+                        </div>
                     </form>
                 </div>
             </section>
             
-            <script src="/static/js/jquery.min.js"></script>
+            <script src="/static/js/jquery.min.js"></script>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
             <script>
                 $('#submitForm').click(function(){
                     alert("예측결과를 보시겠습니까?");

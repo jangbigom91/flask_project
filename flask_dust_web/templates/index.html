@@ -32,7 +32,7 @@
 			<section id="banner">
 				<div class="inner">
 					<header>
-						<h1>Fine Dust Project</h1>
+						<h1>Seoul PM10</h1>
 					</header>
 
 					<div class="flex ">
@@ -40,17 +40,17 @@
 							<i class="fas fa-smog"></i>
 							<h3>{{ time }}</h3>
 							{% for i in data %}
-								<p>Seoul PM10 {{ i }}㎍/m³</p>
+								<p>수치 : {{ i }}㎍/m³</p>
 								
 								<!-- jinja2 TypeError 발생 -> int(i)가 아니라 i|int로 표시해야 list인 i를 int형으로 변환 가능 -->
 								{% if 0 < i|int <= 50 %}
-									<p style="font-size: 15px;">Seoul PM10 등급 : 좋음</p>
+									<p style="font-size: 15px;">등급 : 좋음</p>
 								{% elif 51 < i|int <= 100 %}
-									<p style="font-size: 15px;">Seoul PM10 등급 : 보통</p>
+									<p style="font-size: 15px;">등급 : 보통</p>
 								{% elif 101 < i|int <= 150 %}
-									<p style="font-size: 15px;">Seoul PM10 등급 : 나쁨</p>
+									<p style="font-size: 15px;">등급 : 나쁨</p>
 								{% else %}
-									<p style="font-size: 15px;">Seoul PM10 등급 : 매우 나쁨</p>
+									<p style="font-size: 15px;">등급 : 매우 나쁨</p>
 								{% endif %}
 							{% endfor %}
 						</div>
@@ -61,20 +61,20 @@
 							<!-- {% for k in data_tomorrow_am %}
 								<p>Seoul PM10 {{ k }}㎍/m³</p>
 							{% endfor %} -->
-							<p>Seoul PM10 {{ tomorrow_dust - 10 }} ~ {{ tomorrow_dust + 10 }}㎍/m³</p> <!-- 미세먼지 예측 -->
+							<p>예상 수치 : {{ tomorrow_dust - 10 }} ~ {{ tomorrow_dust + 10 }}㎍/m³</p> <!-- 미세먼지 예측 -->
 							
 							<!-- {% for j in data_tomorrow_pm %}
 								<p style="font-size: 15px;">Seoul PM10 등급 : {{ j }}</p>
 							{% endfor %} -->
 							<!-- 미세-->
 							{% if 0 < tomorrow_dust <= 50 %}
-								<p style="font-size: 15px;">Seoul PM10 등급 : 좋음</p>
+								<p style="font-size: 15px;">예상 등급 : 좋음</p>
 							{% elif 51 < tomorrow_dust <= 100 %}
-								<p style="font-size: 15px;">Seoul PM10 등급 : 보통</p>
+								<p style="font-size: 15px;">예상 등급 : 보통</p>
 							{% elif 101 < tomorrow_dust <= 150 %}
-								<p style="font-size: 15px;">Seoul PM10 등급 : 나쁨</p>
+								<p style="font-size: 15px;">예상 등급 : 나쁨</p>
 							{% else %}
-								<p style="font-size: 15px;">Seoul PM10 등급 : 매우 나쁨</p>
+								<p style="font-size: 15px;">예상 등급 : 매우 나쁨</p>
 							{% endif %}
 						</div>
 						<div>
@@ -83,19 +83,19 @@
 							<!-- {% for k in data_tomorrow_am %}
 								<p>Seoul PM10 {{ k }}㎍/m³</p>
 							{% endfor %} -->
-							<p>Seoul PM10 {{ after_tomorrow_dust - 10 }} ~ {{ after_tomorrow_dust + 10 }}㎍/m³</p> <!-- 미세먼지 예측 -->
+							<p>예상 수치 : {{ after_tomorrow_dust - 10 }} ~ {{ after_tomorrow_dust + 10 }}㎍/m³</p> <!-- 미세먼지 예측 -->
 							
 							<!-- {% for j in data_tomorrow_pm %}
 								<p style="font-size: 15px;">Seoul PM10 등급 : {{ j }}</p>
 							{% endfor %} -->
 							{% if 0 < after_tomorrow_dust <= 50 %}
-								<p style="font-size: 15px;">Seoul PM10 등급 : 좋음</p>
+								<p style="font-size: 15px;">예상 등급 : 좋음</p>
 							{% elif 51 < after_tomorrow_dust <= 100 %}
-								<p style="font-size: 15px;">Seoul PM10 등급 : 보통</p>
+								<p style="font-size: 15px;">예상 등급 : 보통</p>
 							{% elif 101 < after_tomorrow_dust <= 150 %}
-								<p style="font-size: 15px;">Seoul PM10 등급 : 나쁨</p>
+								<p style="font-size: 15px;">예상 등급 : 나쁨</p>
 							{% else %}
-								<p style="font-size: 15px;">Seoul PM10 등급 : 매우 나쁨</p>
+								<p style="font-size: 15px;">예상 등급 : 매우 나쁨</p>
 							{% endif %}
 						</div>
 					</div>

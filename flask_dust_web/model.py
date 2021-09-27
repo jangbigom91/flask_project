@@ -582,6 +582,6 @@ def date_indexing(date) :
     elif date == '20211231' :
         return y_pred[364]
 
-tomorrow_dust = round(float(date_indexing('20211022')))
-after_tomorrow_dust = round(float(date_indexing('20211023')))
+tomorrow_dust = round(float(date_indexing('20210928')))
+after_tomorrow_dust = round(float(date_indexing('20210929')))
 

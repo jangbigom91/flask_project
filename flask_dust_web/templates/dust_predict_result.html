@@ -32,27 +32,25 @@
 			<section id="banner">
 				<div class="inner">
 					<header>
-						<h1>Fine Dust Predict Result</h1>
+						<h1>Seoul PM10 Predict Result</h1>
 					</header>
 
 					<div class="flex ">
 						<div>
 							<i class="fas fa-smog"></i>
-							<h3>{{ predict_date }}</h3>
-							{% for i in data %}
-								<p>Seoul PM10 {{ i }}㎍/m³</p>
-								
-								<!-- jinja2 TypeError 발생 -> int(i)가 아니라 i|int로 표시해야 list인 i를 int형으로 변환 가능 -->
-								{% if 0 < i|int <= 50 %}
-									<p style="font-size: 15px;">Seoul PM10 등급 : 좋음</p>
-								{% elif 51 < i|int <= 100 %}
-									<p style="font-size: 15px;">Seoul PM10 등급 : 보통</p>
-								{% elif 101 < i|int <= 150 %}
-									<p style="font-size: 15px;">Seoul PM10 등급 : 나쁨</p>
-								{% else %}
-									<p style="font-size: 15px;">Seoul PM10 등급 : 매우 나쁨</p>
-								{% endif %}
-							{% endfor %}
+							<h3>{{ date }}</h3>
+							
+							<p>예상 수치 : {{ result - 10 }} ~ {{ result + 10 }}㎍/m³</p> <!-- 미세먼지 예측 -->
+							
+							{% if 0 < result <= 50 %}
+								<p style="font-size: 15px;">예상 등급 : 좋음</p>
+							{% elif 51 < result <= 100 %}
+								<p style="font-size: 15px;">예상 등급 : 보통</p>
+							{% elif 101 < result <= 150 %}
+								<p style="font-size: 15px;">예상 등급 : 나쁨</p>
+							{% else %}
+								<p style="font-size: 15px;">예상 등급 : 매우 나쁨</p>
+							{% endif %}
                         </div>
 					</div>
 

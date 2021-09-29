@@ -35,12 +35,14 @@
 					<header>
 						<h1>Fine Dust Predict</h1>
 					</header>
-                    <form action="/dust_predict_result" method="GET">
-                        <input type="text" name="date" placeholder="날짜를 입력하세요 : ex) 20210927">
-                        <div>
-                            <button type="submit" id="submitForm" style="margin-top: 10px;">예측하기</button>
-                        </div>
-                    </form>
+                    <div class="flex">
+                        <form action="/dust_predict_result" method="GET">
+                            <input type="text" name="date" placeholder="날짜를 입력하세요 : ex) 20210927" style="width: 700px;">
+                            <div>
+                                <button type="submit" id="submitForm" style="margin-top: 30px; margin-right: 10px;">PREDICT</button>
+                            </div>
+                        </form>
+                    </div>      
                 </div>
             </section>
             

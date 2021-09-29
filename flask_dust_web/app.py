@@ -52,12 +52,11 @@ def index():
     from datetime import timedelta
     import datetime
 
-    now = datetime.datetime.now().strftime('%Y-%m-%d')
-    tomorrow = datetime.date.today() + datetime.timedelta(days=1)
-    tomorrow_after = datetime.date.today() + datetime.timedelta(days=2)
+    now = datetime.datetime.now().strftime('%Y-%m-%d') # 오늘 날짜 표시
+    tomorrow = datetime.date.today() + datetime.timedelta(days=1) # 내일 날짜 표시
+    tomorrow_after = datetime.date.today() + datetime.timedelta(days=2) # 모레 날짜 표시
 
-    # model.py 불러오기
-    # import model
+    # 모델 라이브러리 import
     import pandas as pd
     import numpy as np
     import matplotlib.pyplot as plt
@@ -73,6 +72,7 @@ def index():
     from keras import Input
     from tensorflow import keras
 
+    # random seed 설정
     np.random.seed(0)
     tf.random.set_seed(0)
 
@@ -386,7 +386,7 @@ def index():
     # bad_level = level_acc[2]
     # very_bad_level = level_acc[3]
 
-    date = [
+    today = [
             20210901, 20210902, 20210903, 20210904, 20210905, 20210906, 20210907, 20210908, 20210909, 20210910,
             20210911, 20210912, 20210913, 20210914, 20210915, 20210916, 20210917, 20210918, 20210919, 20210920,
             20210921, 20210922, 20210923, 20210924, 20210925, 20210926, 20210927, 20210928, 2021929, 20210930, 
@@ -400,254 +400,267 @@ def index():
             20211211, 20211212, 20211213, 20211214, 20211215, 20211216, 20211217, 20211218, 20211219, 20211220,
             20211221, 20211222, 20211223, 20211224, 20211225, 20211226, 20211227, 20211228, 20211229, 20211230, 20211231]
 
-    def date_indexing(date) :
-        if date == '20210901' :
+    def date_indexing(today) :
+        if today == '20210901' :
             return y_pred[243]
-        elif date == '20210902' :
+        elif today == '20210902' :
             return y_pred[244]
-        elif date == '20210903' :
+        elif today == '20210903' :
             return y_pred[245]
-        elif date == '20210904' :
+        elif today == '20210904' :
             return y_pred[246]
-        elif date == '20210905' :
+        elif today == '20210905' :
             return y_pred[247]
-        elif date == '20210906' :
+        elif today == '20210906' :
             return y_pred[248]
-        elif date == '20210907' :
+        elif today == '20210907' :
             return y_pred[249]
-        elif date == '20210908' :
+        elif today == '20210908' :
             return y_pred[250]
-        elif date == '20210909' :
+        elif today == '20210909' :
             return y_pred[251]
-        elif date == '20210910' :
+        elif today == '20210910' :
             return y_pred[252]
-        elif date == '20210911' :
+        elif today == '20210911' :
             return y_pred[253]
-        elif date == '20210912' :
+        elif today == '20210912' :
             return y_pred[254]
-        elif date == '20210913' :
+        elif today == '20210913' :
             return y_pred[255]
-        elif date == '20210914' :
+        elif today == '20210914' :
             return y_pred[256]
-        elif date == '20210915' :
+        elif today == '20210915' :
             return y_pred[257]
-        elif date == '20210916' :
+        elif today == '20210916' :
             return y_pred[258]
-        elif date == '20210917' :
+        elif today == '20210917' :
             return y_pred[259]
-        elif date == '20210918' :
+        elif today == '20210918' :
             return y_pred[260]
-        elif date == '20210919' :
+        elif today == '20210919' :
             return y_pred[261]
-        elif date == '20210920' :
+        elif today == '20210920' :
             return y_pred[262]
-        elif date == '20210921' :
+        elif today == '20210921' :
             return y_pred[263]
-        elif date == '20210922' :
+        elif today == '20210922' :
             return y_pred[264]
-        elif date == '20210923' :
+        elif today == '20210923' :
             return y_pred[265]
-        elif date == '20210924' :
+        elif today == '20210924' :
             return y_pred[266]
-        elif date == '20210925' :
+        elif today == '20210925' :
             return y_pred[267]
-        elif date == '20210926' :
+        elif today == '20210926' :
             return y_pred[268]
-        elif date == '20210927' :
+        elif today == '20210927' :
             return y_pred[269]
-        elif date == '20210928' :
+        elif today == '20210928' :
             return y_pred[270]
-        elif date == '20210929' :
+        elif today == '20210929' :
             return y_pred[271]
-        elif date == '20210930' :
+        elif today == '20210930' :
             return y_pred[272]
-        elif date == '20211001' :
+        elif today == '20211001' :
             return y_pred[273]
-        elif date == '20211002' :
+        elif today == '20211002' :
             return y_pred[274]
-        elif date == '20211003' :
+        elif today == '20211003' :
             return y_pred[275]
-        elif date == '20211004' :
+        elif today == '20211004' :
             return y_pred[276]
-        elif date == '20211005' :
+        elif today == '20211005' :
             return y_pred[277]
-        elif date == '20211006' :
+        elif today == '20211006' :
             return y_pred[278]
-        elif date == '20211007' :
+        elif today == '20211007' :
             return y_pred[279]
-        elif date == '20211008' :
+        elif today == '20211008' :
             return y_pred[280]
-        elif date == '20211009' :
+        elif today == '20211009' :
             return y_pred[281]
-        elif date == '20211010' :
+        elif today == '20211010' :
             return y_pred[282]
-        elif date == '20211011' :
+        elif today == '20211011' :
             return y_pred[283]
-        elif date == '20211012' :
+        elif today == '20211012' :
             return y_pred[284]
-        elif date == '20211013' :
+        elif today == '20211013' :
             return y_pred[285]
-        elif date == '20211014' :
+        elif today == '20211014' :
             return y_pred[286]
-        elif date == '20211015' :
+        elif today == '20211015' :
             return y_pred[287]
-        elif date == '20211016' :
+        elif today == '20211016' :
             return y_pred[288]
-        elif date == '20211017' :
+        elif today == '20211017' :
             return y_pred[289]
-        elif date == '20211018' :
+        elif today == '20211018' :
             return y_pred[290]
-        elif date == '20211019' :
+        elif today == '20211019' :
             return y_pred[291]
-        elif date == '20211020' :
+        elif today == '20211020' :
             return y_pred[292]
-        elif date == '20211021' :
+        elif today == '20211021' :
             return y_pred[293]
-        elif date == '20211022' :
+        elif today == '20211022' :
             return y_pred[294]
-        elif date == '20211023' :
+        elif today == '20211023' :
             return y_pred[295]
-        elif date == '20211024' :
+        elif today == '20211024' :
             return y_pred[296]
-        elif date == '20211025' :
+        elif today == '20211025' :
             return y_pred[297]
-        elif date == '20211026' :
+        elif today == '20211026' :
             return y_pred[298]
-        elif date == '20211027' :
+        elif today == '20211027' :
             return y_pred[299]
-        elif date == '20211028' :
+        elif today == '20211028' :
             return y_pred[300]
-        elif date == '20211029' :
+        elif today == '20211029' :
             return y_pred[301]
-        elif date == '20211030' :
+        elif today == '20211030' :
             return y_pred[302]
-        elif date == '20211031' :
+        elif today == '20211031' :
             return y_pred[303]
-        elif date == '20211101' :
+        elif today == '20211101' :
             return y_pred[304]
-        elif date == '20211102' :
+        elif today == '20211102' :
             return y_pred[305]
-        elif date == '20211103' :
+        elif today == '20211103' :
             return y_pred[306]
-        elif date == '20211104' :
+        elif today == '20211104' :
             return y_pred[307]
-        elif date == '20211105' :
+        elif today == '20211105' :
             return y_pred[308]
-        elif date == '20211106' :
+        elif today == '20211106' :
             return y_pred[309]
-        elif date == '20211107' :
+        elif today == '20211107' :
             return y_pred[310]
-        elif date == '20211108' :
+        elif today == '20211108' :
             return y_pred[311]
-        elif date == '20211109' :
+        elif today == '20211109' :
             return y_pred[312]
-        elif date == '20211110' :
+        elif today == '20211110' :
             return y_pred[313]
-        elif date == '20211111' :
+        elif today == '20211111' :
             return y_pred[314]
-        elif date == '20211112' :
+        elif today == '20211112' :
             return y_pred[315]
-        elif date == '20211113' :
+        elif today == '20211113' :
             return y_pred[316]
-        elif date == '20211114' :
+        elif today == '20211114' :
             return y_pred[317]
-        elif date == '20211115' :
+        elif today == '20211115' :
             return y_pred[318]
-        elif date == '20211116' :
+        elif today == '20211116' :
             return y_pred[319]
-        elif date == '20211117' :
+        elif today == '20211117' :
             return y_pred[320]
-        elif date == '20211118' :
+        elif today == '20211118' :
             return y_pred[321]
-        elif date == '20211119' :
+        elif today == '20211119' :
             return y_pred[322]
-        elif date == '20211120' :
+        elif today == '20211120' :
             return y_pred[323]
-        elif date == '20211121' :
+        elif today == '20211121' :
             return y_pred[324]
-        elif date == '20211122' :
+        elif today == '20211122' :
             return y_pred[325]
-        elif date == '20211123' :
+        elif today == '20211123' :
             return y_pred[326]
-        elif date == '20211124' :
+        elif today == '20211124' :
             return y_pred[327]
-        elif date == '20211125' :
+        elif today == '20211125' :
             return y_pred[328]
-        elif date == '20211126' :
+        elif today == '20211126' :
             return y_pred[329]
-        elif date == '20211127' :
+        elif today == '20211127' :
             return y_pred[330]
-        elif date == '20211128' :
+        elif today == '20211128' :
             return y_pred[331]
-        elif date == '20211129' :
+        elif today == '20211129' :
             return y_pred[332]
-        elif date == '20211130' :
+        elif today == '20211130' :
             return y_pred[333]
-        elif date == '20211201' :
+        elif today == '20211201' :
             return y_pred[334]
-        elif date == '20211202' :
+        elif today == '20211202' :
             return y_pred[335]
-        elif date == '20211203' :
+        elif today == '20211203' :
             return y_pred[336]
-        elif date == '20211204' :
+        elif today == '20211204' :
             return y_pred[337]
-        elif date == '20211205' :
+        elif today == '20211205' :
             return y_pred[338]
-        elif date == '20211206' :
+        elif today == '20211206' :
             return y_pred[339]
-        elif date == '20211207' :
+        elif today == '20211207' :
             return y_pred[340]
-        elif date == '20211208' :
+        elif today == '20211208' :
             return y_pred[341]
-        elif date == '20211209' :
+        elif today == '20211209' :
             return y_pred[342]
-        elif date == '20211210' :
+        elif today == '20211210' :
             return y_pred[343]
-        elif date == '20211211' :
+        elif today == '20211211' :
             return y_pred[344]
-        elif date == '20211212' :
+        elif today == '20211212' :
             return y_pred[345]
-        elif date == '20211213' :
+        elif today == '20211213' :
             return y_pred[346]
-        elif date == '20211214' :
+        elif today == '20211214' :
             return y_pred[347]
-        elif date == '20211215' :
+        elif today == '20211215' :
             return y_pred[348]
-        elif date == '20211216' :
+        elif today == '20211216' :
             return y_pred[349]
-        elif date == '20211217' :
+        elif today == '20211217' :
             return y_pred[350]
-        elif date == '20211218' :
+        elif today == '20211218' :
             return y_pred[351]
-        elif date == '20211219' :
+        elif today == '20211219' :
             return y_pred[352]
-        elif date == '20211220' :
+        elif today == '20211220' :
             return y_pred[353]
-        elif date == '20211221' :
+        elif today == '20211221' :
             return y_pred[354]
-        elif date == '20211222' :
+        elif today == '20211222' :
             return y_pred[355]
-        elif date == '20211223' :
+        elif today == '20211223' :
             return y_pred[356]
-        elif date == '20211224' :
+        elif today == '20211224' :
             return y_pred[357]
-        elif date == '20211225' :
+        elif today == '20211225' :
             return y_pred[358]
-        elif date == '20211226' :
+        elif today == '20211226' :
             return y_pred[359]
-        elif date == '20211227' :
+        elif today == '20211227' :
             return y_pred[360]
-        elif date == '20211228' :
+        elif today == '20211228' :
             return y_pred[361]
-        elif date == '20211229' :
+        elif today == '20211229' :
             return y_pred[362]
-        elif date == '20211230' :
+        elif today == '20211230' :
             return y_pred[363]
-        elif date == '20211231' :
+        elif today == '20211231' :
             return y_pred[364]
 
-    tomorrow_dust = round(float(date_indexing('20210928')))
-    after_tomorrow_dust = round(float(date_indexing('20210929')))
+    # 오늘 날짜 불러오기
+    import datetime
+    today = datetime.datetime.now().strftime('%Y%m%d')
+    
+    # 내일 날짜 지정하기, strftime을 이용해서 날짜타입을 str로 변환 -> 모델 예측 시, float에 들어오는 date_indexing 타입이 int나 string 형태여야 오류가 발생하지 않음.
+    tomorrow_date = datetime.date.today() + datetime.timedelta(days=1)
+    tomorrow_date_strftime = tomorrow_date.strftime('%Y%m%d')
+    
+    # 모레 날짜 지정하기, strftime을 이용해서 날짜타입을 str로 변환 -> 모델 예측 시, float에 들어오는 date_indexing 타입이 int나 string 형태여야 오류가 발생하지 않음.
+    after_tomorrow_date = datetime.date.today() + datetime.timedelta(days=2)
+    after_tomorrow_date_strftime = after_tomorrow_date.strftime('%Y%m%d')
+
+    # 모델에 예측하는 날짜를 넣기
+    tomorrow_dust = round(float(date_indexing(tomorrow_date_strftime)))
+    after_tomorrow_dust = round(float(date_indexing(after_tomorrow_date_strftime)))
     
     return render_template("index.html", data = mydata, time = now, next_time = tomorrow, next_time_after = tomorrow_after, data_tomorrow_am = mydata_tomorrow_am, data_tomorrow_pm = mydata_tomorrow_pm,
                            tomorrow_dust = tomorrow_dust, after_tomorrow_dust = after_tomorrow_dust)
@@ -839,6 +852,7 @@ def dust_predict():
 # dust_predict_result page
 @app.route('/dust_predict_result', methods = ['GET', 'POST'])
 def dust_predict_result():
+    # 모델 라이브러리 import
     import pandas as pd
     import numpy as np
     import matplotlib.pyplot as plt

@@ -708,136 +708,136 @@ def process():
 #     return render_template("predict.html", data=model.model_acc, data_1=model.good_level, data_2=model.normal_level, data_3=model.bad_level, data4=model.very_bad_level)
 
 # graph page
-@app.route('/graph', methods = ['GET', 'POST'])
-def graph():
-    return render_template('graph.html')
+# @app.route('/graph', methods = ['GET', 'POST'])
+# def graph():
+#     return render_template('graph.html')
 
-# seoul pm10 graph page
-@app.route('/seoul_graph', methods = ['GET', 'POST'])
-def seoul_graph():
-    import pandas as pd
-    import numpy as np
-    import seaborn as sns
-    import matplotlib as mpl
-    import matplotlib
-    matplotlib.use('TkAgg')
-    import matplotlib.pyplot as plt
-    from dateutil.parser import parse
+# # seoul pm10 graph page
+# @app.route('/seoul_graph', methods = ['GET', 'POST'])
+# def seoul_graph():
+#     import pandas as pd
+#     import numpy as np
+#     import seaborn as sns
+#     import matplotlib as mpl
+#     import matplotlib
+#     matplotlib.use('TkAgg')
+#     import matplotlib.pyplot as plt
+#     from dateutil.parser import parse
 
-    df = pd.read_csv('raw_dataset_plus.csv', parse_dates=['Date'], index_col='Date')
+#     df = pd.read_csv('raw_dataset_plus.csv', parse_dates=['Date'], index_col='Date')
 
-    def plot_df(df, x, y, title="", xlabel='Date', ylabel='Seoul', dpi=100):
-        plt.figure(figsize=(16, 5), dpi=dpi)
-        plt.plot(x, y, color='tab:red')
-        plt.gca().set(title=title, xlabel=xlabel, ylabel=ylabel)
-        plt.show()
+#     def plot_df(df, x, y, title="", xlabel='Date', ylabel='Seoul', dpi=100):
+#         plt.figure(figsize=(16, 5), dpi=dpi)
+#         plt.plot(x, y, color='tab:red')
+#         plt.gca().set(title=title, xlabel=xlabel, ylabel=ylabel)
+#         plt.show()
 
-        plt.close()
+#         plt.close()
 
-    graph_seoul = plot_df(df, x=df.index, y=df.Seoul, title='PM10 of Seoul from 2014 to 2021.')
+#     graph_seoul = plot_df(df, x=df.index, y=df.Seoul, title='PM10 of Seoul from 2014 to 2021.')
     
-    # 인덱스 컬럼(Date)을 데이터 컬럼으로 바꾸고 순번으로 인덱스 변경
-    df.reset_index(inplace=True)
+#     # 인덱스 컬럼(Date)을 데이터 컬럼으로 바꾸고 순번으로 인덱스 변경
+#     df.reset_index(inplace=True)
 
-    # Date컬럼에서 년도, 월을 분리
-    df['year'] = [d.year for d in df.Date]
-    df['month'] = [d.strftime('%b') for d in df.Date]
+#     # Date컬럼에서 년도, 월을 분리
+#     df['year'] = [d.year for d in df.Date]
+#     df['month'] = [d.strftime('%b') for d in df.Date]
 
-    # 도표 작성
-    fig, axes = plt.subplots(1, 2, figsize=(18, 7), dpi=100)
-    sns.boxplot(x='year', y='Seoul', data=df, ax=axes[0])
-    sns.boxplot(x='month', y='Seoul', data=df, ax=axes[1])
+#     # 도표 작성
+#     fig, axes = plt.subplots(1, 2, figsize=(18, 7), dpi=100)
+#     sns.boxplot(x='year', y='Seoul', data=df, ax=axes[0])
+#     sns.boxplot(x='month', y='Seoul', data=df, ax=axes[1])
 
-    # 제목 설정
-    axes[0].set_title('PM10 of Seoul(2014~2021 year)', fontsize=18)
-    axes[1].set_title('PM10 of Seoul(2014~2021 month)', fontsize=18)
+#     # 제목 설정
+#     axes[0].set_title('PM10 of Seoul(2014~2021 year)', fontsize=18)
+#     axes[1].set_title('PM10 of Seoul(2014~2021 month)', fontsize=18)
 
-    plt.show()
-    plt.close()
+#     plt.show()
+#     plt.close()
 
-    return render_template('graph.html')
+#     return render_template('graph.html')
 
-# tianjin pm10 graph page
-@app.route('/tianjin_graph', methods = ['GET', 'POST'])
-def tianjin_graph():
-    import pandas as pd
-    import numpy as np
-    import seaborn as sns
-    import matplotlib as mpl
-    import matplotlib
-    matplotlib.use('TkAgg')
-    import matplotlib.pyplot as plt
-    from dateutil.parser import parse
+# # tianjin pm10 graph page
+# @app.route('/tianjin_graph', methods = ['GET', 'POST'])
+# def tianjin_graph():
+#     import pandas as pd
+#     import numpy as np
+#     import seaborn as sns
+#     import matplotlib as mpl
+#     import matplotlib
+#     matplotlib.use('TkAgg')
+#     import matplotlib.pyplot as plt
+#     from dateutil.parser import parse
 
-    df = pd.read_csv('raw_dataset_plus.csv', parse_dates=['Date'], index_col='Date')
+#     df = pd.read_csv('raw_dataset_plus.csv', parse_dates=['Date'], index_col='Date')
 
-    def plot_df(df, x, y, title="", xlabel='Date', ylabel='Tianjin', dpi=100):
-        plt.figure(figsize=(16, 5), dpi=dpi)
-        plt.plot(x, y, color='tab:red')
-        plt.gca().set(title=title, xlabel=xlabel, ylabel=ylabel)
-        plt.show()
+#     def plot_df(df, x, y, title="", xlabel='Date', ylabel='Tianjin', dpi=100):
+#         plt.figure(figsize=(16, 5), dpi=dpi)
+#         plt.plot(x, y, color='tab:red')
+#         plt.gca().set(title=title, xlabel=xlabel, ylabel=ylabel)
+#         plt.show()
 
-        plt.close()
+#         plt.close()
 
-    graph_Tianjin = plot_df(df, x=df.index, y=df.Tianjin, title='PM10 of Tianjin from 2014 to 2021.')
+#     graph_Tianjin = plot_df(df, x=df.index, y=df.Tianjin, title='PM10 of Tianjin from 2014 to 2021.')
     
-    df.reset_index(inplace=True)
+#     df.reset_index(inplace=True)
 
-    df['year'] = [d.year for d in df.Date]
-    df['month'] = [d.strftime('%b') for d in df.Date]
+#     df['year'] = [d.year for d in df.Date]
+#     df['month'] = [d.strftime('%b') for d in df.Date]
 
-    fig, axes = plt.subplots(1, 2, figsize=(18, 7), dpi=100)
-    sns.boxplot(x='year', y='Tianjin', data=df, ax=axes[0])
-    sns.boxplot(x='month', y='Tianjin', data=df, ax=axes[1])
+#     fig, axes = plt.subplots(1, 2, figsize=(18, 7), dpi=100)
+#     sns.boxplot(x='year', y='Tianjin', data=df, ax=axes[0])
+#     sns.boxplot(x='month', y='Tianjin', data=df, ax=axes[1])
 
-    axes[0].set_title('PM10 of Tianjin(2014~2021 year)', fontsize=18)
-    axes[1].set_title('PM10 of Tianjin(2014~2021 month)', fontsize=18)
+#     axes[0].set_title('PM10 of Tianjin(2014~2021 year)', fontsize=18)
+#     axes[1].set_title('PM10 of Tianjin(2014~2021 month)', fontsize=18)
 
-    plt.show()
-    plt.close()
+#     plt.show()
+#     plt.close()
 
-    return render_template('graph.html')
+#     return render_template('graph.html')
 
-# weihai pm10 graph page
-@app.route('/weihai_graph', methods = ['GET', 'POST'])
-def weihai_graph():
-    import pandas as pd
-    import numpy as np
-    import seaborn as sns
-    import matplotlib as mpl
-    import matplotlib
-    matplotlib.use('TkAgg')
-    import matplotlib.pyplot as plt
-    from dateutil.parser import parse
+# # weihai pm10 graph page
+# @app.route('/weihai_graph', methods = ['GET', 'POST'])
+# def weihai_graph():
+#     import pandas as pd
+#     import numpy as np
+#     import seaborn as sns
+#     import matplotlib as mpl
+#     import matplotlib
+#     matplotlib.use('TkAgg')
+#     import matplotlib.pyplot as plt
+#     from dateutil.parser import parse
 
-    df = pd.read_csv('raw_dataset_plus.csv', parse_dates=['Date'], index_col='Date')
+#     df = pd.read_csv('raw_dataset_plus.csv', parse_dates=['Date'], index_col='Date')
 
-    def plot_df(df, x, y, title="", xlabel='Date', ylabel='Weihai', dpi=100):
-        plt.figure(figsize=(16, 5), dpi=dpi)
-        plt.plot(x, y, color='tab:red')
-        plt.gca().set(title=title, xlabel=xlabel, ylabel=ylabel)
-        plt.show()
+#     def plot_df(df, x, y, title="", xlabel='Date', ylabel='Weihai', dpi=100):
+#         plt.figure(figsize=(16, 5), dpi=dpi)
+#         plt.plot(x, y, color='tab:red')
+#         plt.gca().set(title=title, xlabel=xlabel, ylabel=ylabel)
+#         plt.show()
 
-        plt.close()
+#         plt.close()
 
-    graph_Weihai = plot_df(df, x=df.index, y=df.Weihai, title='PM10 of Weihai from 2014 to 2021.')
+#     graph_Weihai = plot_df(df, x=df.index, y=df.Weihai, title='PM10 of Weihai from 2014 to 2021.')
     
-    df.reset_index(inplace=True)
+#     df.reset_index(inplace=True)
 
-    df['year'] = [d.year for d in df.Date]
-    df['month'] = [d.strftime('%b') for d in df.Date]
+#     df['year'] = [d.year for d in df.Date]
+#     df['month'] = [d.strftime('%b') for d in df.Date]
 
-    fig, axes = plt.subplots(1, 2, figsize=(18, 7), dpi=100)
-    sns.boxplot(x='year', y='Weihai', data=df, ax=axes[0])
-    sns.boxplot(x='month', y='Weihai', data=df, ax=axes[1])
+#     fig, axes = plt.subplots(1, 2, figsize=(18, 7), dpi=100)
+#     sns.boxplot(x='year', y='Weihai', data=df, ax=axes[0])
+#     sns.boxplot(x='month', y='Weihai', data=df, ax=axes[1])
 
-    axes[0].set_title('PM10 of Weihai(2014~2021 year)', fontsize=18)
-    axes[1].set_title('PM10 of Weihai(2014~2021 month)', fontsize=18)
+#     axes[0].set_title('PM10 of Weihai(2014~2021 year)', fontsize=18)
+#     axes[1].set_title('PM10 of Weihai(2014~2021 month)', fontsize=18)
 
-    plt.show()
-    plt.close()
+#     plt.show()
+#     plt.close()
 
-    return render_template('graph.html')
+#     return render_template('graph.html')
 
 # reference page
 @app.route('/reference', methods = ['GET', 'POST'])

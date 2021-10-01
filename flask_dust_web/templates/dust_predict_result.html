@@ -10,60 +10,58 @@
 	</head>
 
 {% block body %}
-
-		<!-- Header -->
-			<header id="header">
-				<div class="inner">
-					<a href="/" class="logo"><strong>Pree Mask</strong></a>
-					<nav id="nav">
-							<a href="/">Home</a>
-							<a href="/dust_predict">Prediction</a>
-							<a href="/process">Process</a>
-							<!-- <a href="/data">Data</a>
-							<a href="/predict">Predict</a> -->
-							<!-- <a href="/graph">Graph</a> -->
-							<a href="/reference">Reference</a>
-					</nav>
-					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars" style="background: #6cc091;"></span></a>
-				</div>
-			</header>
+	<!-- Header -->
+		<header id="header">
+			<div class="inner">
+				<a href="/" class="logo"><strong>Pree Mask</strong></a>
+				<nav id="nav">
+						<a href="/">Home</a>
+						<a href="/dust_predict">Prediction</a>
+						<a href="/process">Process</a>
+						<!-- <a href="/data">Data</a>
+						<a href="/predict">Predict</a> -->
+						<!-- <a href="/graph">Graph</a> -->
+						<a href="/reference">Reference</a>
+				</nav>
+				<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars" style="background: #6cc091;"></span></a>
+			</div>
+		</header>
 			
 		<!-- Banner -->
-			<section id="banner">
-				<div class="inner">
-					<header>
-						<h1>Prediction Result</h1>
-					</header>
+		<section id="banner">
+			<div class="inner">
+				<header>
+					<h1>Prediction Result</h1>
+				</header>
 
-					<div class="flex ">
-						<div>
-							<i class="fas fa-smog"></i>
-							<h3>{{ date }}</h3>
-							
-							<p>예상 수치 : {{ result - 10 }} ~ {{ result + 10 }}㎍/m³</p> <!-- 미세먼지 예측 -->
-							
-							{% if 0 < result <= 50 %}
-								<p style="font-size: 15px;">예상 등급 : 좋음</p>
-							{% elif 51 < result <= 100 %}
-								<p style="font-size: 15px;">예상 등급 : 보통</p>
-							{% elif 101 < result <= 150 %}
-								<p style="font-size: 15px;">예상 등급 : 나쁨</p>
-							{% else %}
-								<p style="font-size: 15px;">예상 등급 : 매우 나쁨</p>
-							{% endif %}
-                        </div>
+				<div class="flex ">
+					<div>
+						<i class="fas fa-smog"></i>
+						<h3>{{ date[0:4] + '-' + date[4:6] + '-' + date[6:8] }}</h3>
+						
+						<p>예상 수치 : {{ result - 10 }} ~ {{ result + 10 }}㎍/m³</p> <!-- 미세먼지 예측 -->
+						
+						{% if 0 < result <= 50 %}
+							<p style="font-size: 15px;">예상 등급 : 좋음</p>
+						{% elif 51 < result <= 100 %}
+							<p style="font-size: 15px;">예상 등급 : 보통</p>
+						{% elif 101 < result <= 150 %}
+							<p style="font-size: 15px;">예상 등급 : 나쁨</p>
+						{% else %}
+							<p style="font-size: 15px;">예상 등급 : 매우 나쁨</p>
+						{% endif %}
 					</div>
-
-					<footer>
-						<a href="/dust_predict" class="button" style="margin-left: 10px;">RETURN</a>
-					</footer>
 				</div>
-			</section>
+
+				<footer>
+					<a href="/dust_predict" class="button" style="margin-left: 10px;">RETURN</a>
+				</footer>
+			</div>
+		</section>
 		
 		<!-- Scripts -->
-			<script src="/static/js/jquery.min.js"></script>
-			<script src="/static/js/skel.min.js"></script>
-			<script src="/static/js/main.js"></script>
-
+		<script src="/static/js/jquery.min.js"></script>
+		<script src="/static/js/skel.min.js"></script>
+		<script src="/static/js/main.js"></script>
 {% endblock %}
 </html>

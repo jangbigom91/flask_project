@@ -26,11 +26,6 @@
 				<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars" style="background: #6cc091;"></span></a>
 			</div>
 		</header>
-		<style>
-			.flex div h3 {
-				font-size: 10px;
-			}
-		</style>
 	<!-- Banner -->
 		<section id="banner">
 			<div class="inner">
@@ -41,7 +36,7 @@
 				<div class="flex ">
 					<div>
 						<i class="fas fa-smog"></i>
-						<h3>{{ time }}(오늘)</h3>
+						<h3>{{ time }}</h3>
 						{% for i in data %}
 							<p>수치 : {{ i }}㎍/m³</p>
 							
@@ -60,7 +55,7 @@
 
 					<div>
 						<i class="fas fa-smog"></i>
-						<h3>{{ next_time }}(내일)</h3>
+						<h3>{{ next_time }}</h3>
 						<!-- {% for k in data_tomorrow_am %}
 							<p>Seoul PM10 {{ k }}㎍/m³</p>
 						{% endfor %} -->
@@ -82,7 +77,7 @@
 					</div>
 					<div>
 						<i class="fas fa-smog"></i>
-						<h3>{{ next_time_after }}(모레)</h3>
+						<h3>{{ next_time_after }}</h3>
 						<!-- {% for k in data_tomorrow_am %}
 							<p>Seoul PM10 {{ k }}㎍/m³</p>
 						{% endfor %} -->
@@ -140,38 +135,6 @@
 					</div>
 				</div>
 			</section> -->
-
-		<!-- Footer -->
-			<!-- <footer id="footer">
-				<div class="inner">
-
-					<h3>Get in touch</h3>
-
-					<form action="#" method="post">
-
-						<div class="field half first">
-							<label for="name">Name</label>
-							<input name="name" id="name" type="text" placeholder="Name">
-						</div>
-						<div class="field half">
-							<label for="email">Email</label>
-							<input name="email" id="email" type="email" placeholder="Email">
-						</div>
-						<div class="field">
-							<label for="message">Message</label>
-							<textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
-						</div>
-						<ul class="actions">
-							<li><input value="Send Message" class="button alt" type="submit"></li>
-						</ul>
-					</form>
-
-					<div class="copyright">
-						&copy; Untitled. Design: <a href="#">TEMPLATED</a>. Images: <a href="#">Unsplash</a>.
-					</div>
-
-				</div>
-			</footer> -->
 
 		<!-- Scripts -->
 		<script src="/static/js/jquery.min.js"></script>

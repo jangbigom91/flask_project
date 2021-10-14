@@ -282,7 +282,7 @@ def index():
     # plt.show()
     
     ### 저장한 모델 불러오기
-    model = keras.models.load_model('model\LCNN_model_predict.h5')
+    model = keras.models.load_model('model\LCNN_four(tem,hum,WH).h5')
     
     ## 결과 실제화
     y_true = pm_seoul_data[test_cut:]
@@ -1077,7 +1077,7 @@ def dust_predict_result():
     # plt.show()
     
     ### 저장한 모델 불러오기
-    model = keras.models.load_model('model\LCNN_model_predict.h5')
+    model = keras.models.load_model('model\LCNN_four(tem,hum,WH).h5')
     
     ## 결과 실제화
     y_true = pm_seoul_data[test_cut:]

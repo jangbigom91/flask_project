@@ -1453,4 +1453,4 @@ def dust_predict_result():
 
 # 오류 표시, 나중에 배포할 때는 app.debug 지우거나 False로 고쳐주기
 if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0')
+    app.run(debug=False)

@@ -869,7 +869,7 @@ def dust_predict_result():
     from keras.layers import LSTM, Dropout, Dense, Activation, Conv1D, GlobalMaxPooling1D, MaxPooling1D, concatenate, Flatten, Reshape
     from keras.callbacks import TensorBoard, ModelCheckpoint, ReduceLROnPlateau
     from keras import Input
-    from tensorflow import keras
+    # from tensorflow import keras
 
     np.random.seed(0)
     # tf.random.set_seed(0)
@@ -1456,4 +1456,4 @@ def dust_predict_result():
 
 # 오류 표시, 나중에 배포할 때는 app.debug 지우거나 False로 고쳐주기
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=5000)

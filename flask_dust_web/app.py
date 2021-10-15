@@ -60,7 +60,7 @@ def index():
     import pandas as pd
     import numpy as np
     import matplotlib.pyplot as plt
-    import tensorflow as tf
+    # import tensorflow as tf
     import datetime
     import os
     import warnings
@@ -74,7 +74,7 @@ def index():
 
     # random seed 설정
     np.random.seed(0)
-    tf.random.set_seed(0)
+    # tf.random.set_seed(0)
 
     ## 하이퍼 파라메터
 
@@ -856,7 +856,7 @@ def dust_predict_result():
     import pandas as pd
     import numpy as np
     import matplotlib.pyplot as plt
-    import tensorflow as tf
+    # import tensorflow as tf
     import datetime
     import os
     import warnings
@@ -869,7 +869,7 @@ def dust_predict_result():
     from tensorflow import keras
 
     np.random.seed(0)
-    tf.random.set_seed(0)
+    # tf.random.set_seed(0)
 
     ## 하이퍼 파라메터
 

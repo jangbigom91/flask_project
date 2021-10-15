@@ -59,12 +59,12 @@ def index():
     # 모델 라이브러리 import
     import pandas as pd
     import numpy as np
-    import matplotlib.pyplot as plt
-    # import tensorflow as tf
+    # import matplotlib.pyplot as plt
+    import tensorflow as tf
     import datetime
     import os
     import warnings
-    import keras
+    # import keras
     warnings.filterwarnings('ignore')
 
     from keras.models import Sequential, Model, load_model
@@ -856,12 +856,12 @@ def dust_predict_result():
     # 모델 라이브러리 import
     import pandas as pd
     import numpy as np
-    import matplotlib.pyplot as plt
-    # import tensorflow as tf
+    # import matplotlib.pyplot as plt
+    import tensorflow as tf
     import datetime
     import os
     import warnings
-    import keras
+    # import keras
     warnings.filterwarnings('ignore')
 
     

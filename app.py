@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, session
 from bs4 import BeautifulSoup
 from datetime import timedelta
 import datetime
-import pymysql
+# import pymysql
 import urllib.request
 import csv
 import pandas as pd

@@ -10,13 +10,13 @@ import pandas as pd
 app = Flask(__name__)
 
 # Database 연결
-db = pymysql.connect(
-    host = 'mydatabase.cr7yob8emqao.us-east-2.rds.amazonaws.com',
-    port = 3306,
-    user = 'admin',
-    passwd = 'altpaltp12!',
-    db = 'preprocessed_data'
-)
+# db = pymysql.connect(
+#     host = 'mydatabase.cr7yob8emqao.us-east-2.rds.amazonaws.com',
+#     port = 3306,
+#     user = 'admin',
+#     passwd = 'altpaltp12!',
+#     db = 'preprocessed_data'
+# )
 
 # index page
 @app.route('/', methods = ['GET', 'POST'])

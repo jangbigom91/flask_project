@@ -71,7 +71,7 @@ def index():
     from keras.layers import LSTM, Dropout, Dense, Activation, Conv1D, GlobalMaxPooling1D, MaxPooling1D, concatenate, Flatten, Reshape
     from keras.callbacks import TensorBoard, ModelCheckpoint, ReduceLROnPlateau
     from keras import Input
-    # from tensorflow import keras
+    from tensorflow import keras
 
     # random seed 설정
     np.random.seed(0)
@@ -869,7 +869,7 @@ def dust_predict_result():
     from keras.layers import LSTM, Dropout, Dense, Activation, Conv1D, GlobalMaxPooling1D, MaxPooling1D, concatenate, Flatten, Reshape
     from keras.callbacks import TensorBoard, ModelCheckpoint, ReduceLROnPlateau
     from keras import Input
-    # from tensorflow import keras
+    from tensorflow import keras
 
     np.random.seed(0)
     # tf.random.set_seed(0)

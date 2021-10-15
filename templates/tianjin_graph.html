@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PM10 of Tianjin</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="{{url_for('static',filename='css/style.css')}}" rel="stylesheet" />
+        <link href="{{url_for('static',filename='css/font-awesome.min.css')}}" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    </head>
+
+    <body class="subpage">
+    
+    {% block body %}
+    <!-- Header -->
+        <header id="header">
+            <div class="inner">
+                <a href="/" class="logo"><strong>Fine Dust</strong> Project</a>
+                <nav id="nav">
+                    <a href="/">Home</a>
+                    <a href="/process">Process</a>
+                    <a href="/reference">Reference</a>
+                    <!-- <a href="/data">Data</a>
+                    <a href="/predict">Predict</a> -->
+                    <a href="/seoul_graph">PM10_Seoul</a>
+                    <a href="/tianjin_graph">PM10_Tianjin</a>
+                    <a href="/weihai_graph">PM10_Weihai</a>
+                </nav>
+                <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+            </div>
+        </header>
+        <section id="banner">
+            <div class="inner">
+                <header>
+                    <h1>Fine Dust Project</h1>
+                </header>
+            </div>
+        </section>
+        <!-- Footer -->
+			<!-- <footer id="footer">
+				<div class="inner">
+
+					<h3>Get in touch</h3>
+
+					<form action="#" method="post">
+
+						<div class="field half first">
+							<label for="name">Name</label>
+							<input name="name" id="name" type="text" placeholder="Name">
+						</div>
+						<div class="field half">
+							<label for="email">Email</label>
+							<input name="email" id="email" type="email" placeholder="Email">
+						</div>
+						<div class="field">
+							<label for="message">Message</label>
+							<textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
+						</div>
+						<ul class="actions">
+							<li><input value="Send Message" class="button alt" type="submit"></li>
+						</ul>
+					</form>
+
+					<div class="copyright">
+						&copy; Untitled. Design: <a href="#">TEMPLATED</a>. Images: <a href="#">Unsplash</a>.
+					</div>
+
+				</div>
+			</footer> -->
+    {% endblock %}
+</html>

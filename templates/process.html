@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pree Mask</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="{{url_for('static',filename='css/style.css')}}" rel="stylesheet" />
+        <link href="{{url_for('static',filename='css/process.css')}}" rel="stylesheet" />
+        <link href="{{url_for('static',filename='css/font-awesome.min.css')}}" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    </head>
+
+<body class="subpage">
+    
+{% block body %}
+    <!-- Header -->
+        <header id="header">
+            <div class="inner">
+                <a href="/" class="logo"><strong>Pree Mask</strong></a>
+                <nav id="nav">
+                    <a href="/">Home</a>
+                    <a href="/dust_predict">Prediction</a>
+                    <a href="/process">Process</a>
+                    <!-- <a href="/graph">Graph</a> -->
+                    <!-- <a href="/data">Data</a>
+                    <a href="/predict">Predict</a> -->
+                    <a href="/reference">Reference</a>
+                </nav>
+                <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+            </div>
+        </header>
+        <img src="{{ url_for('static', filename='images/process.png') }}"  width="1000px", height="500px", style="display: block; margin:0 auto; margin-top:100px">
+
+        <!-- <table>
+            <tr class="column">
+                <th>참고 사이트</th>
+                <th>프로그래밍 언어 및 프로그램</th>
+                <th>참고 논문</th>
+            </tr>
+            <tr>
+                <td><a href="https://data.kma.go.kr/">https://data.kma.go.kr/</a>&nbsp;(기상자료개방포털)</td>
+                <td>GOOGLE COLAB, Jupyter Notebook</td>
+                <td>미세먼지 위험 단계 예측을 위한 1DC-RNN 모델 설계 - 한양대학교</td>
+            </tr>
+            <tr>
+                <td><a href="https://aqicn.org/">https://aqicn.org/</a>&nbsp;(전세계 대기질 사이트)</td>
+                <td>Python, Selenium</td>
+                <td>미세먼지! 무엇이든 물어보세요 - 환경부</td>
+            </tr>
+            <tr>
+                <td><a href="https://aws.amazon.com/ko/">https://aws.amazon.com/ko/</a>&nbsp;(아마존 웹 서비스)</td>
+                <td>MySQL, AWS</td>
+                <td>미세먼지 예측을 위한 기계학습 모델 간 성능 비교 연구 - 동아대학교</td>
+            </tr>
+            <tr>
+                <td><a href="https://www.tensorflow.org/tutorials/structured_data/time_series?hl=ko">https://www.tensorflow.org/tutorials/structured_data/time_series?hl=ko</a>&nbsp;(텐서플로우 시계열 예측)</td>
+                <td>Flask, HTML/CSS</td>
+                <td>미세먼지 예측을 위한 딥러닝 기반 농도별 분리 예측 모델 - 한국기술교육대학교</td>
+            </tr>
+        </table> -->
+{% endblock %}
+</html>

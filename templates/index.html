@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Pree Mask</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link href="{{url_for('static',filename='css/style.css')}}" rel="stylesheet" />
+		<link href="{{url_for('static',filename='css/font-awesome.min.css')}}" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+	</head>
+
+{% block body %}
+	<!-- Header -->
+		<header id="header">
+			<div class="inner">
+				<a href="/" class="logo"><strong>Pree Mask</strong></a>
+				<nav id="nav">
+						<a href="/">Home</a>
+						<a href="/dust_predict">Prediction</a>
+						<a href="/process">Process</a>
+						<!-- <a href="/data">Data</a>
+						<a href="/predict">Predict</a> -->
+						<!-- <a href="/graph">Graph</a> -->
+						<a href="/reference">Reference</a>
+				</nav>
+				<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars" style="background: #6cc091;"></span></a>
+			</div>
+		</header>
+	<!-- Banner -->
+		<section id="banner">
+			<div class="inner">
+				<header>
+					<h1>Seoul PM10</h1>
+				</header>
+
+				<div class="flex ">
+					<div>
+						<i class="fas fa-smog"></i>
+						<h3>{{ time }}</h3>
+						{% for i in data %}
+							<p>수치 : {{ i }}㎍/m³</p>
+							
+							<!-- jinja2 TypeError 발생 -> int(i)가 아니라 i|int로 표시해야 list인 i를 int형으로 변환 가능 -->
+							{% if 0 < i|int <= 50 %}
+								<p style="font-size: 15px;">등급 : 좋음</p>
+							{% elif 51 < i|int <= 100 %}
+								<p style="font-size: 15px;">등급 : 보통</p>
+							{% elif 101 < i|int <= 150 %}
+								<p style="font-size: 15px;">등급 : 나쁨</p>
+							{% else %}
+								<p style="font-size: 15px;">등급 : 매우 나쁨</p>
+							{% endif %}
+						{% endfor %}
+					</div>
+
+					<div>
+						<i class="fas fa-smog"></i>
+						<h3>{{ next_time }}</h3>
+						<!-- {% for k in data_tomorrow_am %}
+							<p>Seoul PM10 {{ k }}㎍/m³</p>
+						{% endfor %} -->
+						<p>예상 수치 : {{ tomorrow_dust - 10 }} ~ {{ tomorrow_dust + 10 }}㎍/m³</p> <!-- 미세먼지 예측 -->
+						
+						<!-- {% for j in data_tomorrow_pm %}
+							<p style="font-size: 15px;">Seoul PM10 등급 : {{ j }}</p>
+						{% endfor %} -->
+						<!-- 미세-->
+						{% if 0 < tomorrow_dust <= 50 %}
+							<p style="font-size: 15px;">예상 등급 : 좋음</p>
+						{% elif 51 < tomorrow_dust <= 100 %}
+							<p style="font-size: 15px;">예상 등급 : 보통</p>
+						{% elif 101 < tomorrow_dust <= 150 %}
+							<p style="font-size: 15px;">예상 등급 : 나쁨</p>
+						{% else %}
+							<p style="font-size: 15px;">예상 등급 : 매우 나쁨</p>
+						{% endif %}
+					</div>
+					<div>
+						<i class="fas fa-smog"></i>
+						<h3>{{ next_time_after }}</h3>
+						<!-- {% for k in data_tomorrow_am %}
+							<p>Seoul PM10 {{ k }}㎍/m³</p>
+						{% endfor %} -->
+						<p>예상 수치 : {{ after_tomorrow_dust - 10 }} ~ {{ after_tomorrow_dust + 10 }}㎍/m³</p> <!-- 미세먼지 예측 -->
+						
+						<!-- {% for j in data_tomorrow_pm %}
+							<p style="font-size: 15px;">Seoul PM10 등급 : {{ j }}</p>
+						{% endfor %} -->
+						{% if 0 < after_tomorrow_dust <= 50 %}
+							<p style="font-size: 15px;">예상 등급 : 좋음</p>
+						{% elif 51 < after_tomorrow_dust <= 100 %}
+							<p style="font-size: 15px;">예상 등급 : 보통</p>
+						{% elif 101 < after_tomorrow_dust <= 150 %}
+							<p style="font-size: 15px;">예상 등급 : 나쁨</p>
+						{% else %}
+							<p style="font-size: 15px;">예상 등급 : 매우 나쁨</p>
+						{% endif %}
+					</div>
+				</div>
+
+				<footer>
+					<a href="/" class="button" style="margin-right: 55px;">REFRESH</a>
+				</footer>
+			</div>
+		</section>
+
+		<!-- Three -->
+			<!-- <section id="three" class="wrapper align-center">
+				<div class="inner">
+					<div class="flex flex-2">
+						<article>
+							<div class="image round">
+								<img src="static/images/process_150.png" alt="process" />
+							</div>
+							<header>
+								<h3>About<br /> Fine Dust Process</h3>
+							</header>
+							<p>Check out the fine dust project process here.<br /></p>
+							<footer>
+								<a href="/process" class="button">Learn More</a>
+							</footer>
+						</article>
+						<article>
+							<div class="image round">
+								<img src="static/images/dust_graph.png" alt="graph" />
+							</div>
+							<header>
+								<h3>About<br />Fine Dust Reference</h3>
+							</header>
+							<p>Check out the fine dust project graph here.<br /></p>
+							<footer>
+								<a href="/reference" class="button">Learn More</a>
+							</footer>
+						</article>
+					</div>
+				</div>
+			</section> -->
+
+		<!-- Scripts -->
+		<script src="/static/js/jquery.min.js"></script>
+		<script src="/static/js/skel.min.js"></script>
+		<script src="/static/js/main.js"></script>
+{% endblock %}
+</html>

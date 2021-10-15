@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fine Dust Project</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="{{url_for('static',filename='css/style.css')}}" rel="stylesheet" />
+        <link href="{{url_for('static',filename='css/font-awesome.min.css')}}" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    </head>
+
+<body class="subpage">
+    
+{% block body %}
+    <!-- Header -->
+        <header id="header">
+            <div class="inner">
+                <a href="/" class="logo"><strong>Fine Dust</strong> Project</a>
+                <nav id="nav">
+                    <a href="/">Home</a>
+                    <a href="/process">Process</a>
+                    <!-- <a href="/data">Data</a>
+                    <a href="/predict">Predict</a> -->
+                    <!-- <a href="/graph">Graph</a> -->
+                    <a href="/reference">Reference</a>
+                </nav>
+                <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+            </div>
+        </header>
+        <p>
+            total accuracy : {{data}}<br>
+            level 'Good' accuracy : {{data_1}}<br>
+            level 'Normal' accuracy : {{data_2}}<br>
+            level 'Bad' accuracy : {{data_3}}<br>
+            level 'Very Bad' accuracy : {{data_4}}
+        </p>
+{% endblock %}
+</html>

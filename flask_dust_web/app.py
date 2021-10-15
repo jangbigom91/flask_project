@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, session
 from bs4 import BeautifulSoup
 from datetime import timedelta
 import datetime
-import pymysql
+# import pymysql
 import urllib.request
 import csv
 import pandas as pd
@@ -10,13 +10,13 @@ import pandas as pd
 app = Flask(__name__)
 
 # Database 연결
-db = pymysql.connect(
-    host = 'mydatabase.cr7yob8emqao.us-east-2.rds.amazonaws.com',
-    port = 3306,
-    user = 'admin',
-    passwd = 'altpaltp12!',
-    db = 'preprocessed_data'
-)
+# db = pymysql.connect(
+#     host = 'mydatabase.cr7yob8emqao.us-east-2.rds.amazonaws.com',
+#     port = 3306,
+#     user = 'admin',
+#     passwd = 'altpaltp12!',
+#     db = 'preprocessed_data'
+# )
 
 # index page
 @app.route('/', methods = ['GET', 'POST'])
@@ -59,11 +59,12 @@ def index():
     # 모델 라이브러리 import
     import pandas as pd
     import numpy as np
-    import matplotlib.pyplot as plt
-    # import tensorflow as tf
+    # import matplotlib.pyplot as plt
+    import tensorflow as tf
     import datetime
     import os
     import warnings
+    # import keras
     warnings.filterwarnings('ignore')
 
     from keras.models import Sequential, Model, load_model
@@ -855,18 +856,20 @@ def dust_predict_result():
     # 모델 라이브러리 import
     import pandas as pd
     import numpy as np
-    import matplotlib.pyplot as plt
-    # import tensorflow as tf
+    # import matplotlib.pyplot as plt
+    import tensorflow as tf
     import datetime
     import os
     import warnings
+    # import keras
     warnings.filterwarnings('ignore')
 
+    
     from keras.models import Sequential, Model, load_model
     from keras.layers import LSTM, Dropout, Dense, Activation, Conv1D, GlobalMaxPooling1D, MaxPooling1D, concatenate, Flatten, Reshape
     from keras.callbacks import TensorBoard, ModelCheckpoint, ReduceLROnPlateau
     from keras import Input
-    from tensorflow import keras
+    # from tensorflow import keras
 
     np.random.seed(0)
     # tf.random.set_seed(0)
@@ -1453,4 +1456,4 @@ def dust_predict_result():
 
 # 오류 표시, 나중에 배포할 때는 app.debug 지우거나 False로 고쳐주기
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port = 5000)
+    app.run(host='0.0.0.0', port=5000)

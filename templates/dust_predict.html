@@ -26,7 +26,6 @@
                     <!-- <a href="/data">Data</a>
                     <a href="/predict">Predict</a> -->
                 </nav>
-                <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
             </div>
         </header>
             
@@ -37,7 +36,7 @@
                 </header>
                 <div class="flex">
                     <form action="/dust_predict_result" method="GET">
-                        <input type="text" name="date" placeholder="날짜를 입력하세요 : ex) 20210927" style="width: 700px;">
+                        <input type="text" name="date" placeholder="날짜를 입력하세요 : ex) 20211001 ~ 20211031" style="width: 700px;">
                         <div>
                             <button type="submit" id="submitForm" style="margin-top: 30px; margin-right: 10px;">PREDICT</button>
                         </div>
@@ -49,7 +48,7 @@
         <script src="/static/js/jquery.min.js"></script>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
         <script>
             $('#submitForm').click(function(){
-                alert("예측결과를 보시겠습니까?");
+                alert("예측결과를 보시겠습니까?\n(날짜 범위는 '20211001 ~ 20211031' 입니다.)");
             });
         </script>
     {% endblock %}

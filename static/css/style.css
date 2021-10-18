@@ -3152,3 +3152,17 @@ padding-top: 44px;
     }
 
 }
+
+.inner .preemask {
+    float: left;
+    width: 300px;
+}
+
+#header .reset {
+    display: inline;
+    cursor: pointer;
+}
+
+.inner .home, .predict, .process, .reference{
+    margin-top: 35px;
+}

@@ -6,11 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link href="{{url_for('static',filename='css/style.css')}}" rel="stylesheet" />
         <link href="{{url_for('static',filename='css/process.css')}}" rel="stylesheet" />
+        <link href="{{url_for('static',filename='css/reference.css')}}" rel="stylesheet" />
         <link href="{{url_for('static',filename='css/font-awesome.min.css')}}" rel="stylesheet" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     </head>
-
 <body class="subpage">
     
 {% block body %}
@@ -27,7 +27,6 @@
                     <!-- <a href="/data">Data</a>
                     <a href="/predict">Predict</a> -->
                 </nav>
-                <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
             </div>
         </header>
         <!-- <section id="banner">
@@ -38,16 +37,10 @@
             </div>
         </section> -->
         <ul class="bxslider" style="margin-top: 10px;">
-            <li><img src="{{ url_for('static', filename='images/source_1.png') }}" style="margin: 0 auto;"></li>
-            <li><img src="{{ url_for('static', filename='images/source_2.png') }}" style="margin: 0 auto; margin-top: 100px;"></li>
-            <li><img src="{{ url_for('static', filename='images/source_3.png') }}" style="margin: 0 auto; margin-top: 100px;"></li>
+            <li><img src="{{ url_for('static', filename='images/source_1.png') }}" class="source_1"></li>
+            <li><img src="{{ url_for('static', filename='images/source_2.png') }}" class="source_2"></li>
+            <li><img src="{{ url_for('static', filename='images/source_3.png') }}" class="source_3"></li>
         </ul>
-        
-        <!-- <ul class="bxslider" style="margin-top: 10px;">
-            <li><img src="{{ url_for('static', filename='images/source_1.png') }}" style="margin: 0 auto;"></li>
-            <li><img src="{{ url_for('static', filename='images/source_2.png') }}" style="margin: 0 auto;"></li>
-            <li><img src="{{ url_for('static', filename='images/source_3.png') }}" style="margin: 0 auto;"></li>
-        </ul> -->
        
         <script src="/static/js/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
